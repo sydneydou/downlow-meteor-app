@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 
-export default () => {
-  <div>
-    <p>This is the Profile Page</p>
-  </div>;
+ProfilePage = () => {
+  return (
+    <div>
+      <p>This is the Profile Page</p>
+    </div>
+  );
 };
+
+export default ProfilePage;

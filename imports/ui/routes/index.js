@@ -1,5 +1,9 @@
 import React, { Fragment } from "react";
-import { Redirect, Route, Switch } from "react-router";
+import { Route, Switch, Redirect } from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import CreateEventPage from "../pages/CreateEventPage";
+import ProfilePage from "../pages/ProfilePage";
+import LoginPage from "../pages/LoginPage";
 
 export default () => (
   <Fragment>

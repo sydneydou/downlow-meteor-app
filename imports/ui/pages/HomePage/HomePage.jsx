@@ -1,7 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default () => {
-  <div>
-    <p>This is the Home Page</p>
-  </div>;
+HomePage = () => {
+  return (
+    <div>
+      <p>This is the Home Page.</p>
+    </div>
+  );
 };
+
+export default HomePage;
