@@ -4,16 +4,6 @@ import { render } from "react-dom";
 import App from "/imports/ui/App";
 
 
-import React from 'react';
-
-const App = () => {
-  return (
-    <div>
-      
-    </div>
-  );
-};
-
 
 
 Meteor.startup(() => {
