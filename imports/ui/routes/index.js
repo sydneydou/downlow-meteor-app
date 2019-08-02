@@ -4,8 +4,21 @@ import HomePage from "../pages/HomePage";
 import CreateEventPage from "../pages/CreateEventPage";
 import ProfilePage from "../pages/ProfilePage";
 import LoginPage from "../pages/LoginPage";
+// const isLoggedIn = !!currentUser 
+export default () => {
+   
 
-export default () => (
+    // if (isLoggedIn) {
+    //     return (
+    //       <Switch>
+    //         <Route path="/welcome" component={HomeContainer} />
+    //         <Redirect from="*" to="/welcome" />
+    //       </Switch>
+    //     );
+    //   }
+
+      return (
+
   <Fragment>
     <Switch>
       <Route path="/home" component={HomePage} />
@@ -15,4 +28,5 @@ export default () => (
       <Redirect path="*" to="/home" />
     </Switch>
   </Fragment>
-);
+      )
+    };
