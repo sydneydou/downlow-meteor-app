@@ -4,22 +4,39 @@ import { Accounts } from "meteor/accounts-base";
 
 Meteor.startup(() => {
   if (Meteor.users.find().count() === 0) {
-    Accounts.createUser({
-      email: "animal@party.com",
-      password: "password",
-      username: "Partyanimal"
+    const users = [
+      {
+        email: "a@a.com",
+        password: "a",
+        username: "a"
+      },
+      {
+        email: "b@b.com",
+        password: "b",
+        username: "b"
+      }
+    ];
+
+    users.map(user => {
+      console.log(user);
+      const userID = Accounts.createUser(user);
+      if (user) {
+        console.log("user created: ", userID);
+      } else {
+        console.log("Can not create users");
+      }
     });
   }
 
-  if (Events.find().count() === 0) {
-    Events.insert({
-      title: "Shambhala",
-      artist: "Skrillex",
-      date: "Aug.9th, 9:00p.m",
-      genre: "Dub Step",
-      location: "9999 Granville St",
-      reserved: [],
-      createdBy: []
-    });
-  }
+  //  if (Events.find().count() === 0) {
+  //    Events.insert({
+  //      title: "Shambhala",
+  //      artist: "Skrillex",
+  //      date: "Aug.9th, 9:00p.m",
+  //      genre: "Dub Step",
+  //      location: "9999 Granville St",
+  //      reserved: [],
+  //      createdBy: []
+  //    });
+  //  }
 });
