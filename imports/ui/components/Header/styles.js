@@ -1,5 +1,7 @@
-export default theme => ({
+export default styles = () => ({
     progress: {
-        display: "flex"
+        display: "flex",
+        flexDirection: "row"
     }
 })
+
