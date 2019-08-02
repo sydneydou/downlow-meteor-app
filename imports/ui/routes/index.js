@@ -9,12 +9,13 @@ import { Meteor } from "meteor/meteor";
 
 Routes = () => {
   const currentUser = Meteor.user();
-  console.log(currentUser);
   const isLoggedIn = !!currentUser;
   if (isLoggedIn) {
     return (
       <Switch>
         <Route path="/home" component={HomePage} />
+        <Route path="/create" component={CreateEventPage} exact />
+        <Route path="/profile" component={ProfilePage} exact />
         <Redirect from="*" to="/home" />
       </Switch>
     );
@@ -23,11 +24,8 @@ Routes = () => {
   return (
     <Fragment>
       <Switch>
-        <Route path="/home" component={HomePage} />
-        <Route path="/create" component={CreateEventPage} exact />
-        <Route path="/profile" component={ProfilePage} exact />
         <Route path="/welcome" component={LoginPage} exact />
-        <Redirect path="*" to="/home" />
+        <Redirect path="*" to="/welcome" />
       </Switch>
     </Fragment>
   );
