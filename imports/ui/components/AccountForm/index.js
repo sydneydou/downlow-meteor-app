@@ -5,21 +5,20 @@ import { Accounts } from "meteor/accounts-base";
 const validate = values => {};
 const onSubmit = values => {
   event.preventDefault();
-  // var registerData = {
-  //   username: event.target.registerUsername.value,
-  //   email: event.target.registerEmail.value,
-  //   password: event.target.registerPassword.value
-  // };
-  console.log("test");
-  console.log(values);
+  const registerData = {
+    username: values.username,
+    email: values.email,
+    password: values.password
+  };
+  console.log(registerData);
 
-  // Accounts.createUser(registerData, function(error) {
-  //   if (Meteor.user()) {
-  //     console.log(Meteor.userId());
-  //   } else {
-  //     console.log("ERROR: " + error.reason);
-  //   }
-  // });
+  Accounts.createUser(registerData, function(error) {
+    if (Meteor.user()) {
+      console.log(Meteor.userId());
+    } else {
+      console.log("ERROR: " + error.reason);
+    }
+  });
 };
 
 const AccountForm = () => (
