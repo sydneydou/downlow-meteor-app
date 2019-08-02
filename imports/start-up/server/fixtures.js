@@ -18,7 +18,6 @@ Meteor.startup(() => {
     ];
 
     users.map(user => {
-      console.log(user);
       const userID = Accounts.createUser(user);
       if (user) {
         console.log("user created: ", userID);
@@ -28,15 +27,15 @@ Meteor.startup(() => {
     });
   }
 
-  //  if (Events.find().count() === 0) {
-  //    Events.insert({
-  //      title: "Shambhala",
-  //      artist: "Skrillex",
-  //      date: "Aug.9th, 9:00p.m",
-  //      genre: "Dub Step",
-  //      location: "9999 Granville St",
-  //      reserved: [],
-  //      createdBy: []
-  //    });
-  //  }
+  if (Events.find().count() === 0) {
+    Events.insert({
+      title: "Shambhala",
+      artist: "Skrillex",
+      date: "Aug.9th, 9:00p.m",
+      genre: "Dub Step",
+      location: "9999 Granville St",
+      reserved: [],
+      createdBy: []
+    });
+  }
 });
