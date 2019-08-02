@@ -1,35 +1,36 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
+import { Accounts } from "meteor/accounts-base";
 
 const validate = values => {};
 const onSubmit = values => {
-  
-  var registerData = {
-    username: event.target.registerUsername.value,
-    email: event.target.registerEmail.value,
-    password: event.target.registerPassword.value
- }
+  event.preventDefault();
+  const registerData = {
+    username: values.username,
+    email: values.email,
+    password: values.password
+  };
+  console.log(registerData);
 
- Accounts.createUser(registerData, function(error) {
- 
+  Accounts.createUser(registerData, function(error) {
     if (Meteor.user()) {
-       console.log(Meteor.userId());
+      console.log(Meteor.userId());
     } else {
-       console.log("ERROR: " + error.reason);
+      console.log("ERROR: " + error.reason);
     }
- });
+  });
 };
 
 const AccountForm = () => (
   <Form
-    onSubmit={onSubmit}
-    validate={validate}
+    onSubmit={values => onSubmit(values)}
+    validate={() => validate()}
     render={({ handleSubmit, pristine, invalid }) => (
       <form>
         <h2>Login</h2>
 
         <Field
-          name="Username"
+          name="username"
           render={({ input, meta }) => (
             <div>
               <label>Username</label>
@@ -61,7 +62,11 @@ const AccountForm = () => (
           )}
         />
 
-        <button type="submit" disabled={pristine || invalid}>
+        <button
+          type="submit"
+          // disabled={pristine || invalid}
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </form>
