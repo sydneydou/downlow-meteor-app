@@ -6,14 +6,14 @@ import ProfilePage from "../pages/ProfilePage";
 import LoginPage from "../pages/LoginPage";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
+import Header from "../components/Header";
 
-Routes = () => {
-  const currentUser = Meteor.user();
-  const isLoggedIn = !!currentUser;
-  if (isLoggedIn) {
+Routes = props => {
+  if (props.currentUser) {
     return (
       <Switch>
-        <Route path="/home" component={HomePage} />
+        {/* <Header /> */}
+        <Route path="/home" component={HomePage} exact />
         <Route path="/create" component={CreateEventPage} exact />
         <Route path="/profile" component={ProfilePage} exact />
         <Redirect from="*" to="/home" />
@@ -22,19 +22,17 @@ Routes = () => {
   }
 
   return (
-    <Fragment>
-      <Switch>
-        <Route path="/welcome" component={LoginPage} exact />
-        <Redirect path="*" to="/welcome" />
-      </Switch>
-    </Fragment>
+    <Switch>
+      <Route path="/welcome" component={LoginPage} exact />
+      <Redirect path="*" to="/welcome" />
+    </Switch>
   );
 };
 
 export default withTracker(() => {
   // Meteor.subscribe('myTodos'); // NEW!
   return {
-    currentUser: Meteor.user()
+    currentUser: Meteor.userId
     // currentUserId:Meteor.user
   };
 })(Routes);
