@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import CreateEventPage from "../pages/CreateEventPage";
 import ProfilePage from "../pages/ProfilePage";
 import LoginPage from "../pages/LoginPage";
+import Header from "../components/Header";
 // const isLoggedIn = !!currentUser 
 export default () => {
    
@@ -20,6 +21,7 @@ export default () => {
       return (
 
   <Fragment>
+    <Header/>
     <Switch>
       <Route path="/home" component={HomePage} />
       <Route path="/create" component={CreateEventPage} exact />
