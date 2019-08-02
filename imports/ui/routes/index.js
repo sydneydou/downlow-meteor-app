@@ -6,6 +6,7 @@ import ProfilePage from "../pages/ProfilePage";
 import LoginPage from "../pages/LoginPage";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
+import Header from "../components/Header";
 
 Routes = () => {
   const currentUser = Meteor.user();
@@ -13,6 +14,8 @@ Routes = () => {
   if (isLoggedIn) {
     return (
       <Switch>
+        <Header />
+
         <Route path="/home" component={HomePage} />
         <Route path="/create" component={CreateEventPage} exact />
         <Route path="/profile" component={ProfilePage} exact />
