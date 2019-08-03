@@ -5,14 +5,16 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import Gravatar from "react-gravatar";
 
-const ProfileCard = () => {
+const ProfileCard = ({ currentUser }) => {
   return (
     <div>
       <Card>
         <CardActionArea>
           <CardContent>
-            <p>This is profile card content</p>
+            <Gravatar email={currentUser.emails[0].address} />
+            <h1>{currentUser.username}</h1>
           </CardContent>
         </CardActionArea>
       </Card>

@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import ProfileCard from "../../components/ProfileCard";
+import { withTracker } from "meteor/react-meteor-data";
+import { Meteor } from "meteor/meteor";
 
 class ProfilePage extends Component {
   render() {
+    const { currentUser } = this.props;
     return (
       <div>
-        <p>This is the Profile Page</p>
-        <ProfileCard />
+        <ProfileCard currentUser={currentUser} />
       </div>
     );
   }
 }
 
-export default ProfilePage;
+export default withTracker(() => {
+  return {
+    currentUser: Meteor.user()
+  };
+})(ProfilePage);
