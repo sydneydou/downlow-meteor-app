@@ -5,10 +5,14 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
+import { Link } from "react-router-dom";
+import { Meteor } from "meteor/meteor";
+import { Accounts } from "meteor/accounts-base";
 
 // import Box from "@material-ui/core/Box";
 // import { flexbox } from '@material-ui/system';
 // import { NavLinks } from "react-router-dom";
+
 class Header extends Component {
   render() {
     return (
@@ -16,6 +20,7 @@ class Header extends Component {
         <p>DownLow</p>
         <p>Add Event</p>
         <LongMenu />
+
         <p>
           <a>Notifications</a>
         </p>
@@ -24,10 +29,7 @@ class Header extends Component {
   }
 }
 
-const options = [
- "Profile",
- "Log Out"
-];
+// const options = ["Profile", "Log Out"];
 
 const ITEM_HEIGHT = 48;
 
@@ -43,6 +45,17 @@ function LongMenu() {
     setAnchorEl(null);
   }
 
+  function logout() {
+    console.log("trying to logout");
+    console.log(Meteor.userId());
+    event.preventDefault();
+    Meteor.logout(function(error) {
+      if (error) {
+        console.log("ERROR: " + error.reason);
+      }
+    });
+  }
+
   return (
     <div>
       <IconButton
@@ -50,7 +63,6 @@ function LongMenu() {
         aria-controls="long-menu"
         aria-haspopup="true"
         onClick={handleClick}
-
       >
         <MoreVertIcon />
       </IconButton>
@@ -67,7 +79,15 @@ function LongMenu() {
           }
         }}
       >
-        {options.map(option => (
+        <MenuItem onClick={handleClose}>
+          <Link to="/profile">
+            <span>Profile</span>
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={logout}>
+          <span>Logout</span>
+        </MenuItem>
+        {/* {options.map(option => (
           <MenuItem
             key={option}
             selected={option === "Pyxis"}
@@ -75,7 +95,7 @@ function LongMenu() {
           >
             {option}
           </MenuItem>
-        ))}
+        ))} */}
       </Menu>
     </div>
   );

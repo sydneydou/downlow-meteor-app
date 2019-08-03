@@ -11,13 +11,15 @@ import Header from "../components/Header";
 Routes = props => {
   if (props.currentUser) {
     return (
-      <Switch>
-        {/* <Header /> */}
-        <Route path="/home" component={HomePage} exact />
-        <Route path="/create" component={CreateEventPage} exact />
-        <Route path="/profile" component={ProfilePage} exact />
-        <Redirect from="*" to="/home" />
-      </Switch>
+      <Fragment>
+        <Header />
+        <Switch>
+          <Route path="/home" component={HomePage} exact />
+          <Route path="/create" component={CreateEventPage} exact />
+          <Route path="/profile" component={ProfilePage} exact />
+          <Redirect from="*" to="/home" />
+        </Switch>
+      </Fragment>
     );
   }
 
