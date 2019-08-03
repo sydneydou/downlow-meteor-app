@@ -1,59 +1,32 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
-import { Accounts } from "meteor/accounts-base";
 
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
-// event.preventDefault();
-// var myEmail = event.target.loginEmail.value;
-// var myPassword = event.target.loginPassword.value;
-
-// Meteor.loginWithPassword(myEmail, myPassword, function(error) {
-
-//    if (Meteor.user()) {
-//       console.log(Meteor.userId());
-//    } else {
-//       console.log("ERROR: " + error.reason);
-//    }
-// });
 
 const validate = values => {};
 const onSubmit = values => {
   event.preventDefault();
-  const registerData = {
-    username: values.username,
-    email: values.email,
-    password: values.password
-  };
-  console.log(registerData);
+  var myEmail = values.email;
+  var myPassword = values.password;
 
-  Accounts.createUser(registerData, function(error) {
+  Meteor.loginWithPassword(myEmail, myPassword, function(error) {
     if (Meteor.user()) {
       console.log(Meteor.userId());
     } else {
       console.log("ERROR: " + error.reason);
+      //return this error message onto screen
     }
   });
 };
 
-const AccountForm = () => (
+const LoginForm = () => (
   <Form
     onSubmit={values => onSubmit(values)}
     validate={() => validate()}
     render={({ handleSubmit, pristine, invalid }) => (
       <form>
-        <h2>Create an Account</h2>
-
-        <Field
-          name="username"
-          render={({ input, meta }) => (
-            <div>
-              <label>Username</label>
-              <textarea {...input} />
-              {meta.touched && meta.error && <span>{meta.error}</span>}
-            </div>
-          )}
-        />
+        <h2>Login</h2>
 
         <Field
           name="email"
@@ -82,11 +55,11 @@ const AccountForm = () => (
           disabled={pristine || invalid}
           onClick={handleSubmit}
         >
-          Submit
+          Welcome Back!
         </button>
       </form>
     )}
   />
 );
 
-export default AccountForm;
+export default LoginForm;

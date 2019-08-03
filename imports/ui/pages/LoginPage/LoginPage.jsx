@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AccountForm from "../../components/AccountForm";
+import LoginForm from "../../components/LoginForm";
 import "./styles.css";
 
 LoginPage = () => {
@@ -9,6 +10,7 @@ LoginPage = () => {
   return (
     <div className="login-wrapper">
       <AccountForm />
+      <LoginForm />
     </div>
   );
 };
