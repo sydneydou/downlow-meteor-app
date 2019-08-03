@@ -3,9 +3,9 @@ import AccountForm from "../../components/AccountForm";
 import "./styles.css";
 
 LoginPage = () => {
-  //const { currentUser } = this.props;
-  // const isLoggedIn = !!currentUser;
   //TODO:we can use this isLoggedIn to verfiy if user is logged in and then create a conditional statement
+  // const { currentUser } = this.props;
+  //   const isLoggedIn = !!currentUser;
   return (
     <div className="login-wrapper">
       <AccountForm />

@@ -10,6 +10,7 @@ import Header from "../components/Header";
 
 Routes = props => {
   if (props.currentUser) {
+    console.log(props.currentUser);
     return (
       <Fragment>
         <Header />
@@ -34,7 +35,7 @@ Routes = props => {
 export default withTracker(() => {
   // Meteor.subscribe('myTodos'); // NEW!
   return {
-    currentUser: Meteor.userId
+    currentUser: Meteor.user()
     // currentUserId:Meteor.user
   };
 })(Routes);
