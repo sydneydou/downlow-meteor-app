@@ -1,7 +1,8 @@
-export default styles = () => ({
-    progress: {
-        display: "flex",
-        flexDirection: "row"
-    }
-})
+const styles = theme => ({
+  container: {
+    display: "flex",
+    justifyContent: "space-between"
+  }
+});
 
+export default styles;

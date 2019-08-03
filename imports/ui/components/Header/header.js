@@ -15,10 +15,16 @@ import { Accounts } from "meteor/accounts-base";
 
 class Header extends Component {
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="container">
-        <p>DownLow</p>
-        <p>Add Event</p>
+      <div className={classes.container}>
+        <Link to="/home">
+          <p>DownLow</p>
+        </Link>
+        <Link to="/create">
+          <p>Add Event</p>
+        </Link>
         <LongMenu />
 
         <p>
@@ -28,8 +34,6 @@ class Header extends Component {
     );
   }
 }
-
-// const options = ["Profile", "Log Out"];
 
 const ITEM_HEIGHT = 48;
 
@@ -87,15 +91,6 @@ function LongMenu() {
         <MenuItem onClick={logout}>
           <span>Logout</span>
         </MenuItem>
-        {/* {options.map(option => (
-          <MenuItem
-            key={option}
-            selected={option === "Pyxis"}
-            onClick={handleClose}
-          >
-            {option}
-          </MenuItem>
-        ))} */}
       </Menu>
     </div>
   );
