@@ -4,6 +4,7 @@ import { Form, Field } from "react-final-form";
 const validate = values => {};
 const onSubmit = values => {
   // calling the fields?
+
   var registerData = {
     username: event.target.registerUsername.value,
     email: event.target.registerEmail.value,
