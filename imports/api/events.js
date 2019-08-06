@@ -8,4 +8,15 @@ if (Meteor.isServer) {
   });
 }
 
-Meteor.methods({});
+Meteor.methods({
+  "events.addEvent"(createEvent) {
+    const createdBy = this.userId;
+    Events.insert({ ...createEvent, createdBy });
+  },
+  "events.removeEvent"(createEvent){
+    // if current user id matches created by user id
+  },
+  "events.findCreatedEvent"(){
+    // if created by user id matches current user id
+  }
+});
