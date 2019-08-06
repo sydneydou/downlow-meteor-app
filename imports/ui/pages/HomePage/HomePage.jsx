@@ -9,7 +9,7 @@ class HomePage extends Component {
     return (
       <div>
         <h1>Welcome to DownLow {currentUser.username}!</h1>
-        {/* <EventGrid /> */}
+        <EventGrid />
       </div>
     );
   }
