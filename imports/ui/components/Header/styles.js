@@ -6,8 +6,12 @@ const styles = theme => ({
   "long-menu-item": {
     color: "red"
   },
-  notificationsContainer: {
-    display: "flex"
+  NotificationsContainer: {
+    display: "flex",
+    alignItems: "center"
+  },
+  VertIcon: {
+    marginRight: "10px"
   }
 });
 

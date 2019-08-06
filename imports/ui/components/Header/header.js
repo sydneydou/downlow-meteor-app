@@ -32,8 +32,8 @@ class Header extends Component {
         <Link to="/create">
           <p>Add Event</p>
         </Link>
-        <div className={classes.notificationsContainer}>
-          <LongMenu classes={classes} className={classes.LongMenu} />
+        <div className={classes.NotificationsContainer}>
+          <LongMenu classes={classes} />
           <SimplePopper />
         </div>
       </div>
@@ -73,6 +73,7 @@ function LongMenu({ classes }) {
         aria-controls="long-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        className={classes.VertIcon}
       >
         <MoreVertIcon />
       </IconButton>
