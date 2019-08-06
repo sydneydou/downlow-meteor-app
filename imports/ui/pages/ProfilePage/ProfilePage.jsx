@@ -8,10 +8,12 @@ import EventGrid from "../../components/EventGrid";
 class ProfilePage extends Component {
   render() {
     const { currentUser, classes } = this.props;
+    //only display users created events on this page
     return (
       <div>
         <ProfileCard currentUser={currentUser} />
-        {/* <EventGrid /> */}
+
+        <EventGrid />
       </div>
     );
   }

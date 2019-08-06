@@ -1,3 +1,3 @@
-import CreateEventForm from "./CreateEventForm.jsx";
+import CreateEventPage from "./CreateEventPage.jsx";
 
-export default CreateEventForm;
+export default CreateEventPage;

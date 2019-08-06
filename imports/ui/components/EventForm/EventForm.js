@@ -1,115 +1,108 @@
-import React from "react";
+import React, { Component } from "react";
+import { Form, Field } from "react-final-form";
 
-// class AccountForm extends Component {
-//     constructor(props) {
-//       super(props);
-     
-//     }
-  
-//     render() {
-//       const { } = this.props;
-  
-//       return (
-//         <Form
-  
-//           validate={validate.bind(this)}
-//           render={({ handleSubmit, pristine, invalid, submitting, form }) => (
-//             <form onSubmit={handleSubmit} className={classes.accountForm}>
-//               {!this.state.formToggle && (
-//                 <FormControl fullWidth className={classes.formControl}>
-//                   <InputLabel htmlFor="fullname">Username</InputLabel>
-  
-//                   <Field name="fullname">
-//                     {({ input, meta }) => (
-//                       <Input
-//                         id="fullname"
-//                         type="text"
-//                         inputProps={{
-//                           ...input,
-//                           autoComplete: "off"
-//                         }}
-//                         value={input.value}
-//                       />
-//                     )}
-//                   </Field>
-//                 </FormControl>
-//               )}
-//               <FormControl fullWidth className={classes.formControl}>
-//                 <InputLabel htmlFor="email">Email</InputLabel>
-  
-//                 <Field name="email">
-//                   {({ input, meta }) => (
-//                     <Input
-//                       id="email"
-//                       type="text"
-//                       inputProps={{
-//                         ...input,
-//                         autoComplete: "off"
-//                       }}
-//                       value={input.value}
-//                     />
-//                   )}
-//                 </Field>
-//               </FormControl>
-//               <FormControl fullWidth className={classes.formControl}>
-//                 <InputLabel htmlFor="password">Password</InputLabel>
-  
-//                 <Field name="password">
-//                   {({ input, meta }) => (
-//                     <Input
-//                       id="password"
-//                       type="password"
-//                       inputProps={{
-//                         ...input,
-//                         autoComplete: "off"
-//                       }}
-//                       value={input.value}
-//                     />
-//                   )}
-//                 </Field>
-//               </FormControl>
-//               <FormControl className={classes.formControl}>
-//                 <Grid
-//                   container
-//                   direction="row"
-//                   justify="space-between"
-//                   alignItems="center"
-//                 >
-//                   <Button
-//                     type="submit"
-//                     className={classes.formButton}
-//                     variant="contained"
-//                     size="large"
-//                     color="secondary"
-//                     disabled={pristine || invalid}
-//                   >
-//                     {this.state.formToggle ? "Enter" : "Create Account"}
-//                   </Button>
-//                   <Typography>
-//                     <button
-//                       className={classes.formToggle}
-//                       type="button"
-//                       onClick={() => {
-//                         form.reset();
-//                         this.setState({
-//                           formToggle: !this.state.formToggle
-//                         });
-//                       }}
-//                     >
-//                       {this.state.formToggle
-//                         ? "Create an account."
-//                         : "Login to existing account."}
-//                     </button>
-//                   </Typography>
-//                 </Grid>
-//               </FormControl>
-//               <Typography className={classes.errorMessage}>
-//                 {(this.state.error &&
-//                   this.state.formToggle)}
-//               </Typography>
-//             </form>
-//           )}
-//         />
-//       );
-//     }
-//   }
+// FIXME: make me a stateful component
+
+const validate = values => {};
+const onSubmit = values => {
+  console.log("test");
+  event.preventDefault();
+  const registerEvent = {
+    eventName: values.eventName,
+    eventDescription: values.eventDescription,
+    artist: values.artist,
+    location: values.location,
+    genre: values.genre,
+    price: values.price,
+    time: values.time
+  };
+  console.log(registerEvent);
+};
+
+const CreateEventForm = () => (
+  <Form
+    onSubmit={values => onSubmit(values)}
+    validate={validate}
+    render={({ handleSubmit, pristine, invalid }) => (
+      <form>
+        <h2>Create An Event</h2>
+        <Field
+          name="eventName"
+          render={({ input, meta }) => (
+            <div>
+              <label>Event Name:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+        <Field
+          name="eventDescription"
+          render={({ input, meta }) => (
+            <div>
+              <label>Event Description:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+        <Field
+          name="artist"
+          render={({ input, meta }) => (
+            <div>
+              <label>Artist:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+        <Field
+          name="time"
+          render={({ input, meta }) => (
+            <div>
+              <label>Time:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+        <Field
+          name="location"
+          render={({ input, meta }) => (
+            <div>
+              <label>Location:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+        <Field
+          name="genre"
+          render={({ input, meta }) => (
+            <div>
+              <label>Genre:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+        <Field
+          name="price"
+          render={({ input, meta }) => (
+            <div>
+              <label>Price:</label>
+              <textarea {...input} />
+              {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+          )}
+        />
+
+        <button type="submit" onClick={handleSubmit}>
+          Submit
+        </button>
+      </form>
+    )}
+  />
+);
+
+export default CreateEventForm;

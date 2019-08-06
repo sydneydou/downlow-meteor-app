@@ -7,3 +7,5 @@ import App from "../imports/ui/App/App.jsx";
 Meteor.startup(() => {
   render(<App />, document.getElementById("react-target"));
 });
+
+// mete
