@@ -9,14 +9,14 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  "events.addEvent"(createEvent) {
+  "events.addEvent"(addEvent) {
     const createdBy = this.userId;
-    Events.insert({ ...createEvent, createdBy });
+    Events.insert({ ...addEvent, createdBy });
   },
-  "events.removeEvent"(createEvent){
-    // if current user id matches created by user id
-  },
-  "events.findCreatedEvent"(){
-    // if created by user id matches current user id
-  }
+  // "events.removeEvent"(){
+  //   // if current user id matches created by user id
+  // },
+  // "events.findCreatedEvent"(){
+  //   // if created by user id matches current user id
+  // }
 });
