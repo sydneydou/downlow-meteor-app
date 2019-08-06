@@ -1,12 +1,21 @@
-import React from "react";
 import EventForm from "../../components/EventForm";
+import React, { Component } from "react";
+import { withTracker } from "meteor/react-meteor-data";
+import { Meteor } from "meteor/meteor";
 
-const CreateEventPage = () => {
-  return (
-    <div>
-      <EventForm />
-    </div>
-  );
-};
+class CreateEventPage extends Component {
+  render() {
+    const { currentUser, classes } = this.props;
+    return (
+      <div>
+        <EventForm currentUser={currentUser} />
+      </div>
+    );
+  }
+}
 
-export default CreateEventPage;
+export default withTracker(() => {
+  return {
+    currentUser: Meteor.user()
+  };
+})(CreateEventPage);
