@@ -8,7 +8,7 @@ class ProfilePage extends Component {
   render() {
     const { currentUser, classes } = this.props;
     return (
-      <div className={classes.profilepage}>
+      <div>
         <ProfileCard currentUser={currentUser} />
       </div>
     );
