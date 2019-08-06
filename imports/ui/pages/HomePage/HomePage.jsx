@@ -4,8 +4,8 @@ import { Meteor } from "meteor/meteor";
 
 HomePage = () => {
   //might have to make seperate HomeBanner component in order to pass currentUser
-  const currentUser = this.props;
-  console.log({ currentUser });
+  // const currentUser = this.props;
+  // console.log(props.currentUser);
   return (
     <div>
       <h1>Welcome to DownLow!</h1>

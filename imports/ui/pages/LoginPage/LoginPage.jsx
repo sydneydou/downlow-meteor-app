@@ -3,14 +3,26 @@ import AccountForm from "../../components/AccountForm";
 import LoginForm from "../../components/LoginForm";
 import "./styles.css";
 
-LoginPage = () => {
-  //TODO:we can use this isLoggedIn to verfiy if user is logged in and then create a conditional statement
-  // const { currentUser } = this.props;
-  //   const isLoggedIn = !!currentUser;
+const LoginPage = () => {
   return (
     <div className="login-wrapper">
       <AccountForm />
       <LoginForm />
+      <button
+        type="button"
+        onClick={() => {
+          console.log("toggle");
+          // form.reset();
+          // this.setState({
+          //   formToggle: !this.state.formToggle
+          // });
+        }}
+      >
+        Test Button
+        {/* {this.state.formToggle
+          ? "Create an account."
+          : "Login to existing account."} */}
+      </button>
     </div>
   );
 };

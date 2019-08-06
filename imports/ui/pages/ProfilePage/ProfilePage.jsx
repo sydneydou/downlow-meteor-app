@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import ProfileCard from "../../components/ProfileCard";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
+import styles from "./styles";
 
 class ProfilePage extends Component {
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, classes } = this.props;
     return (
-      <div>
+      <div className={classes.profilepage}>
         <ProfileCard currentUser={currentUser} />
       </div>
     );

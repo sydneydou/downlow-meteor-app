@@ -19,6 +19,7 @@ import { Accounts } from "meteor/accounts-base";
 
 const validate = values => {};
 const onSubmit = values => {
+  console.log(values.password);
   event.preventDefault();
   const registerData = {
     username: values.username,
