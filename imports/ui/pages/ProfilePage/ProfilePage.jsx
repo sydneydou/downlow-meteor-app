@@ -7,13 +7,13 @@ import EventGrid from "../../components/EventGrid";
 
 class ProfilePage extends Component {
   render() {
-    const { currentUser, classes } = this.props;
+    const { currentUser, classes, events } = this.props;
     //only display users created events on this page
     return (
       <div>
         <ProfileCard currentUser={currentUser} />
-
-        <EventGrid />
+        {/* <EventGrid /> */}
+        <h1>events this user has created goes here!!</h1>
       </div>
     );
   }

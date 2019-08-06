@@ -3,20 +3,17 @@ import { Form, Field } from "react-final-form";
 
 const validate = values => {};
 const onSubmit = (values, currentUser) => {
-  // console.log(currentUser);
   event.preventDefault();
   const newEvent = {
-    eventName: values.eventName,
-    eventDescription: values.eventDescription,
+    title: values.eventName,
     artist: values.artist,
-    location: values.location,
+    date: values.date,
     genre: values.genre,
-    price: values.price,
-    time: values.time,
-    createdBy: currentUser,
-    attendees: []
+    location: values.location,
+    reserved: [],
+    createdBy: currentUser
   };
-  console.log(newEvent);
+  Meteor.call("events.newEvent", newEvent);
 };
 
 //meteor call method
@@ -30,7 +27,7 @@ const EventForm = ({ currentUser }) => {
         <form>
           <h2>Create An Event</h2>
           <Field
-            name="eventName"
+            name="title"
             render={({ input, meta }) => (
               <div>
                 <label>Event Name:</label>
@@ -60,10 +57,10 @@ const EventForm = ({ currentUser }) => {
             )}
           />
           <Field
-            name="time"
+            name="date"
             render={({ input, meta }) => (
               <div>
-                <label>Time:</label>
+                <label>Date:</label>
                 <textarea {...input} />
                 {meta.touched && meta.error && <span>{meta.error}</span>}
               </div>
@@ -84,16 +81,6 @@ const EventForm = ({ currentUser }) => {
             render={({ input, meta }) => (
               <div>
                 <label>Genre:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="price"
-            render={({ input, meta }) => (
-              <div>
-                <label>Price:</label>
                 <textarea {...input} />
                 {meta.touched && meta.error && <span>{meta.error}</span>}
               </div>

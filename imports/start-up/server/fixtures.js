@@ -28,27 +28,15 @@ Meteor.startup(() => {
   }
 
   if (Events.find().count() === 0) {
-    const events = [
-      {
-        title: "Shambhala",
-        artist: "Skrillex",
-        date: "Aug.9th, 9:00p.m",
-        genre: "Dub Step",
-        location: "9999 Granville St",
-        reserved: [],
-        createdBy: []
-      },
-      {
-        title: "F4ded",
-        artist: "Griz",
-        date: "July 6th, 9:00p.m",
-        genre: "Future Funk",
-        location: "Surrey",
-        reserved: [],
-        createdBy: []
-      }
-    ];
-
+    const events = {
+      title: "Shambhala",
+      artist: "Skrillex",
+      date: "Aug.9th, 9:00p.m",
+      genre: "Dub Step",
+      location: "9999 Granville St",
+      reserved: [],
+      createdBy: []
+    };
     Events.insert(events);
   }
 });
