@@ -3,13 +3,17 @@ import ProfileCard from "../../components/ProfileCard";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import styles from "./styles";
+import EventGrid from "../../components/EventGrid";
 
 class ProfilePage extends Component {
   render() {
     const { currentUser, classes } = this.props;
+    //only display users created events on this page
     return (
-      <div className={classes.profilepage}>
+      <div>
         <ProfileCard currentUser={currentUser} />
+
+        <EventGrid />
       </div>
     );
   }

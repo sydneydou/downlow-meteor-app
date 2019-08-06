@@ -3,36 +3,35 @@ import AccountForm from "../../components/AccountForm";
 import LoginForm from "../../components/LoginForm";
 import "./styles.css";
 
-const LoginPage = () => {
-  return (
-    <div className="login-wrapper">
-      <AccountForm />
-      <LoginForm />
-      <button
-        type="button"
-        onClick={() => {
-          console.log("toggle");
-          // form.reset();
-          // this.setState({
-          //   formToggle: !this.state.formToggle
-          // });
-        }}
-      >
-        Test Button
-        {/* {this.state.formToggle
-          ? "Create an account."
-          : "Login to existing account."} */}
-      </button>
-    </div>
-  );
-};
+class LoginPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showLogin: true
+    };
+  }
+
+  showLogin = () => {
+    this.setState({
+      showLogin: !this.state.showLogin
+    });
+  };
+  render() {
+    const { showLogin } = this.state;
+    return (
+      <div className="login-wrapper">
+        {showLogin ? <LoginForm /> : <AccountForm />}
+        <button
+          type="button"
+          onClick={() => {
+            this.showLogin();
+          }}
+        >
+          {showLogin ? "Create an account" : "Login Here"}
+        </button>
+      </div>
+    );
+  }
+}
 
 export default LoginPage;
-
-//withTracker retrieves info we need about current user from users collection
-// export default withTracker(() => {
-//   // Meteor.subscribe('myTodos'); // NEW!
-//   return {
-//     currentUser: Meteor.user()
-//   };
-// })(LoginPage);
