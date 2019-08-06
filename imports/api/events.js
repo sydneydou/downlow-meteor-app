@@ -9,9 +9,8 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  "events.addEvent"(addEvent) {
-    const createdBy = this.userId;
-    Events.insert({ ...addEvent, createdBy });
+  "events.newEvent"(newEvent) {
+    Events.insert({ ...newEvent });
   },
   // "events.removeEvent"(){
   //   // if current user id matches created by user id
