@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
 
-const validate = values => {};
-const onSubmit = values => {
-  // calling the fields?
-  var registerData = {
-    username: event.target.registerUsername.value,
-    email: event.target.registerEmail.value,
-    password: event.target.registerPassword.value
-  };
+// FIXME: make me a stateful component
 
-  Accounts.createUser(registerData, function(error) {
-    if (Meteor.user()) {
-      console.log(Meteor.userId());
-    } else {
-      console.log("ERROR: " + error.reason);
-    }
-  });
+const validate = values => {};
+const onSubmit = eventdata => {
+  eventdata.preventDefault();
+  Meteor.call('Events.addEvent', eventdata)
+  
+
+  // Accounts.createUser(registerData, function(error) {
+  //   if (Meteor.user()) {
+  //     console.log(Meteor.userId());
+  //   } else {
+  //     console.log("ERROR: " + error.reason);
+  //   }
+  // });
 };
+console.log(onSubmit.eventdata);
 
 const CreateEventForm = () => (
   <Form
@@ -26,9 +26,8 @@ const CreateEventForm = () => (
     render={({ handleSubmit, pristine, invalid }) => (
       <form>
         <h2>Create An Event</h2>
-        {/* Event Name */}
         <Field
-          name="Event"
+          name="event"
           render={({ input, meta }) => (
             <div>
               <label>Event Name:</label>
@@ -37,9 +36,8 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-        {/* Event Info */}
         <Field
-          name="EventInfo"
+          name="eventinfo"
           render={({ input, meta }) => (
             <div>
               <label>Event Info:</label>
@@ -48,9 +46,8 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-        {/* Artist */}
         <Field
-          name="Artist"
+          name="artist"
           render={({ input, meta }) => (
             <div>
               <label>Artist:</label>
@@ -59,9 +56,8 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-        {/* Location */}
         <Field
-          name="Location"
+          name="location"
           render={({ input, meta }) => (
             <div>
               <label>Location:</label>
@@ -70,7 +66,6 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-        {/* Genre */}
         <Field
           name="genre"
           render={({ input, meta }) => (
@@ -81,7 +76,6 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-        {/* Price */}
         <Field
           name="price"
           render={({ input, meta }) => (
@@ -92,7 +86,6 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-        {/* Time */}
         <Field
           name="time"
           render={({ input, meta }) => (
@@ -103,7 +96,6 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-
         <button type="submit" disabled={pristine || invalid}>
           Submit
         </button>
