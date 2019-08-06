@@ -1,23 +1,32 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
+// import RenderToLayer from "material-ui/internal/RenderToLayer";
 
-const EventCard = () => {
+const EventCard = ({ event, classes }) => {
+  console.log(event);
   return (
-    <div>
-      <Card>
+    <div className={classes.container}>
+      <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
-            <p>This is my event</p>
+            <div >
+              <h1>{event.title}</h1>
+              <h2>{event.artist}</h2>
+              <h2>{event.eventDescription}</h2>
+              <h2>{event.date}</h2>
+              <h3>{event.genre}</h3>
+            </div>
           </CardContent>
         </CardActionArea>
       </Card>
     </div>
   );
+
 };
 
-export default EventCard;
+export default withStyles(styles)(EventCard)
