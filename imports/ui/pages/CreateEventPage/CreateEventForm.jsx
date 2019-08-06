@@ -4,20 +4,11 @@ import { Form, Field } from "react-final-form";
 // FIXME: make me a stateful component
 
 const validate = values => {};
+
 const onSubmit = eventdata => {
   eventdata.preventDefault();
   Meteor.call('Events.addEvent', eventdata)
-  
-
-  // Accounts.createUser(registerData, function(error) {
-  //   if (Meteor.user()) {
-  //     console.log(Meteor.userId());
-  //   } else {
-  //     console.log("ERROR: " + error.reason);
-  //   }
-  // });
 };
-console.log(onSubmit.eventdata);
 
 const CreateEventForm = () => (
   <Form
