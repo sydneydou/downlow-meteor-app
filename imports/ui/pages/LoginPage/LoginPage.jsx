@@ -16,8 +16,6 @@ class LoginPage extends Component {
       showLogin: !this.state.showLogin
     });
   };
-  //if showLogin === true, display loginform component
-  //if showLogin === false, display account form component
   render() {
     const { showLogin } = this.state;
     return (
