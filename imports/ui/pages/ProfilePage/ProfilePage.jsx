@@ -3,6 +3,7 @@ import ProfileCard from "../../components/ProfileCard";
 import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import styles from "./styles";
+import EventGrid from "../../components/EventGrid";
 
 class ProfilePage extends Component {
   render() {
@@ -10,6 +11,7 @@ class ProfilePage extends Component {
     return (
       <div>
         <ProfileCard currentUser={currentUser} />
+        {/* <EventGrid /> */}
       </div>
     );
   }
