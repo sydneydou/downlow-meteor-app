@@ -50,17 +50,5 @@ Meteor.startup(() => {
     ];
 
     Events.insert(events);
-    // events.map(event => {
-    //   events.insert(event);
-    // });
-    // Events.insert({
-    //   title: "Shambhala",
-    //   artist: "Skrillex",
-    //   date: "Aug.9th, 9:00p.m",
-    //   genre: "Dub Step",
-    //   location: "9999 Granville St",
-    //   reserved: [],
-    //   createdBy: []
-    // });
   }
 });
