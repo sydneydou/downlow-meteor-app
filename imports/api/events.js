@@ -1,4 +1,5 @@
 import { Mongo } from "meteor/mongo";
+import { Meteor } from "meteor/meteor";
 
 export const Events = new Mongo.Collection("events");
 
@@ -11,11 +12,19 @@ if (Meteor.isServer) {
 Meteor.methods({
   "events.newEvent"(newEvent) {
     Events.insert({ ...newEvent });
+  },
+  "events.usersEvents"(userId) {
+    console.log(Events.find({ createdBy: userId }).fetch());
+    return Events.find({ createdBy: userId }).fetch();
   }
   // “events.removeEvent”(){
   //   // if current user id matches created by user id
   // },
   // “events.findCreatedEvent”(){
   //   // if created by user id matches current user id
+  // },
+  // “events.usersEvents”(){
+  //   // userid === events.createdBy
+
   // }
 });

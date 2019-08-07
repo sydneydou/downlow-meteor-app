@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
+import { Meteor } from "meteor/meteor";
 
 const validate = values => {};
 const onSubmit = (values, currentUser) => {
@@ -11,12 +12,11 @@ const onSubmit = (values, currentUser) => {
     genre: values.genre,
     location: values.location,
     reserved: [],
-    createdBy: currentUser
+    createdBy: Meteor.userId()
   };
+
   Meteor.call("events.newEvent", newEvent);
 };
-
-//meteor call method
 
 const EventForm = ({ currentUser }) => {
   return (
@@ -96,4 +96,4 @@ const EventForm = ({ currentUser }) => {
   );
 };
 
-export default EventForm;
+export default EventForm
