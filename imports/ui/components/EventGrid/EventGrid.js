@@ -5,7 +5,6 @@ import styles from "./styles";
 import EventCard from "../EventCard";
 
 const EventGrid = ({ classes, events }) => {
-  console.log(events);
   return (
     <Grid container direction="row" justify="space-between" spacing={5}>
       {events && events.map(event => <EventCard event={event} />)}

@@ -20,6 +20,8 @@ export default withTracker(() => {
   Meteor.subscribe("events");
   return {
     currentUser: Meteor.user(),
-    events: Events.find().fetch()
+    events: Events.find()
+      .fetch()
+      .filter(event => event.createdBy !== Meteor.userId())
   };
 })(HomePage);
