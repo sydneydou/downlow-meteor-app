@@ -14,7 +14,6 @@ Meteor.methods({
     Events.insert({ ...newEvent });
   },
   "events.usersEvents"(userId) {
-    console.log(Events.find({ createdBy: userId }).fetch());
     return Events.find({ createdBy: userId }).fetch();
   }
   // “events.removeEvent”(){

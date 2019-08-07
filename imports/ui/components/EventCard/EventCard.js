@@ -7,13 +7,12 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 
 const EventCard = ({ event, classes }) => {
-  console.log(event);
   return (
     <div className={classes.container}>
       <Card className={classes.card}>
         <CardActionArea>
           <CardContent>
-            <div >
+            <div>
               <h1>{event.title}</h1>
               <h2>{event.artist}</h2>
               <h2>{event.eventDescription}</h2>
@@ -25,7 +24,6 @@ const EventCard = ({ event, classes }) => {
       </Card>
     </div>
   );
-
 };
 
-export default withStyles(styles)(EventCard)
+export default withStyles(styles)(EventCard);
