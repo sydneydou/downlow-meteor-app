@@ -3,7 +3,7 @@ import { Form, Field } from "react-final-form";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
-import styled from "styled-components";
+
 //
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
@@ -23,10 +23,6 @@ const onSubmit = values => {
     }
   });
 };
-
-const StyledButton = styled(Button)`
-  background: 40d0;
-`;
 
 const LoginForm = ({ classes }) => (
   <Form

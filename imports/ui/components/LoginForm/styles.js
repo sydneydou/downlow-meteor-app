@@ -14,7 +14,8 @@ const styles = theme => ({
     marginRight: "10px"
   },
   btn: {
-    color: "red"
+    color: "white",
+    backgroundColor: "#40E0D0"
   }
 });
 

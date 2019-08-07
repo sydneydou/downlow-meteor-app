@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
 import { Accounts } from "meteor/accounts-base";
 import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles";
 
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
@@ -38,7 +40,7 @@ const onSubmit = values => {
   });
 };
 
-const AccountForm = () => (
+const AccountForm = ({ classes }) => (
   <Form
     onSubmit={values => onSubmit(values)}
     validate={() => validate()}
@@ -80,10 +82,10 @@ const AccountForm = () => (
         />
 
         <Button
+          className={classes.btn}
           variant="contained"
-          color="#19EBFF"
           type="submit"
-          disabled={pristine || invalid}
+          // disabled={pristine || invalid}
           onClick={handleSubmit}
         >
           Submit
@@ -93,4 +95,4 @@ const AccountForm = () => (
   />
 );
 
-export default AccountForm;
+export default withStyles(styles)(AccountForm);
