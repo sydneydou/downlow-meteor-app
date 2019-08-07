@@ -31,6 +31,7 @@ class ProfilePage extends Component {
 }
 
 export default withTracker(() => {
+  Meteor.subscribe("events");
   return {
     currentUser: Meteor.user()
   };

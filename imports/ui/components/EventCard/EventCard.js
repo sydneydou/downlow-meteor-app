@@ -15,6 +15,7 @@ class EventCard extends Component {
 
   render() {
     const { event, classes } = this.props;
+    console.log(event.reserved.length);
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
@@ -26,6 +27,10 @@ class EventCard extends Component {
                 <h2>{event.eventDescription}</h2>
                 <h2>{event.date}</h2>
                 <h3>{event.genre}</h3>
+                <h3>
+                  There will be {event.reserved.length} users attending this
+                  event!
+                </h3>
                 {Meteor.userId() !== event.createdBy ? (
                   <Button
                     variant="contained"
