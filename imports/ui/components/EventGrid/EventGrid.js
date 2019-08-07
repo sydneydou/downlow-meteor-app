@@ -23,7 +23,6 @@ class EventGrid extends Component {
   render() {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
-    console.log(this.props);
     return (
       <div style={{marginTop: -16}}>
         {this.props.location.pathname === "/home" && (

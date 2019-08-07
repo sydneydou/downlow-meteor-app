@@ -1,11 +1,17 @@
 const styles = theme => ({
   loginWrapper: {
     textAlign: "center",
-    color: "red"
+    color: "white",
+    fontSize: "20px",
+    width: "300px"
   },
   btn: {
     color: "white",
-    backgroundColor: "#40E0D0"
+    backgroundColor: "#19B4A4",
+    width: "80%",
+    marginBottom: "20px",
+    marginTop: "12px",
+    border: "2px solid #19B4A4"
   },
   LoginPageBg: {
     display: "flex",
