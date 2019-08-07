@@ -5,7 +5,6 @@ import styles from "./styles";
 import EventCard from "../EventCard";
 
 const EventGrid = ({ classes, events }) => {
-  console.log(events);
   return (
     <Grid container justify="center" spacing={5}>
       <Grid item xs={12}>

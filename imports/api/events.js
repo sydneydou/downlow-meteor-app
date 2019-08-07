@@ -14,8 +14,11 @@ Meteor.methods({
     Events.insert({ ...newEvent });
   },
   "events.usersEvents"(userId) {
-    console.log(Events.find({ createdBy: userId }).fetch());
     return Events.find({ createdBy: userId }).fetch();
+  },
+  "events.homeEvents"(userId) {
+    console.log(Events.find({ createdBy: { $ne: userId } }).fetch());
+    //return Events.find({ createdBy: userId }).fetch();
   }
   // “events.removeEvent”(){
   //   // if current user id matches created by user id
