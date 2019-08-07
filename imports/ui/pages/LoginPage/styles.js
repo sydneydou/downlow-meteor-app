@@ -10,6 +10,7 @@ const styles = theme => ({
   LoginPageBg: {
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
     backgroundImage: `url("assets/concertbg.jpg")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
