@@ -5,7 +5,8 @@ import styles from "./styles";
 import EventCard from "../EventCard";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
-
+import { withRouter } from "react-router-dom";
+//show all event only for homepage
 class EventGrid extends Component {
   constructor(props) {
     super(props);
@@ -22,27 +23,20 @@ class EventGrid extends Component {
   render() {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
+    console.log(this.props);
     return (
       <div>
-        {showAllEvents ? (
+        {this.props.location.pathname === "/home" && (
           <Button
             variant="contained"
             onClick={() => {
               this.showAllEvents();
             }}
           >
-            Events I'm Attending
-          </Button>
-        ) : (
-          <Button
-            variant="contained"
-            onClick={() => {
-              this.showAllEvents();
-            }}
-          >
-            All Events
+            {showAllEvents ? "Events I'm Attending" : "All Events"}
           </Button>
         )}
+
         {showAllEvents ? (
           <Grid container direction="row" justify="space-between" spacing={5}>
             {events &&
@@ -61,4 +55,4 @@ class EventGrid extends Component {
   }
 }
 
-export default withStyles(styles)(EventGrid);
+export default withRouter(withStyles(styles)(EventGrid));

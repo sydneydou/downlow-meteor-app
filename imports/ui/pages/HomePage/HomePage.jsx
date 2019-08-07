@@ -3,6 +3,7 @@ import { Meteor } from "meteor/meteor";
 import React, { Component } from "react";
 import EventGrid from "../../components/EventGrid";
 import { Events } from "../../../api/events";
+import Button from "@material-ui/core/Button";
 
 class HomePage extends Component {
   render() {
