@@ -15,6 +15,9 @@ Meteor.methods({
   },
   "events.usersEvents"(userId) {
     return Events.find({ createdBy: userId }).fetch();
+  },
+  "events.addUserReservation"(eventId, userId) {
+    Events.update({ _id: eventId }, { $addToSet: { reserved: userId } });
   }
   // “events.removeEvent”(){
   //   // if current user id matches created by user id

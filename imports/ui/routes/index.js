@@ -8,34 +8,26 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Meteor } from "meteor/meteor";
 import Header from "../components/Header";
 
-Routes = props => {
-  if (props.currentUser) {
-    console.log(props.currentUser);
-    return (
-      <Fragment>
-        <Header />
-        <Switch>
-          <Route path="/home" component={HomePage} exact />
-          <Route path="/create" component={CreateEventPage} exact />
-          <Route path="/profile" component={ProfilePage} exact />
-          <Redirect from="*" to="/home" />
-        </Switch>
-      </Fragment>
-    );
-  }
-
-  return (
+const Routes = props =>
+  props.currentUser ? (
+    <Fragment>
+      <Header />
+      <Switch>
+        <Route path="/home" component={HomePage} exact />
+        <Route path="/create" component={CreateEventPage} exact />
+        <Route path="/profile" component={ProfilePage} exact />
+        <Redirect from="*" to="/home" />
+      </Switch>
+    </Fragment>
+  ) : (
     <Switch>
       <Route path="/welcome" component={LoginPage} exact />
       <Redirect path="*" to="/welcome" />
     </Switch>
   );
-};
 
 export default withTracker(() => {
-  // Meteor.subscribe('myTodos'); // NEW!
   return {
     currentUser: Meteor.user()
-    // currentUserId:Meteor.user
   };
 })(Routes);
