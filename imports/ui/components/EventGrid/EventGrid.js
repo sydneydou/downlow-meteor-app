@@ -6,8 +6,13 @@ import EventCard from "../EventCard";
 
 const EventGrid = ({ classes, events }) => {
   return (
-    <Grid container direction="row" justify="space-between" spacing={5}>
-      {events && events.map(event => <EventCard event={event} />)}
+    <Grid
+      container
+      direction="row"
+      justify="space-around"
+      spacing={2}
+    >
+      {events && events.map(event => <EventCard event={event}  />)}
     </Grid>
   );
 };

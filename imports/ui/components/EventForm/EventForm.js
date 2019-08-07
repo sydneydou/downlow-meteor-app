@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
 import { Meteor } from "meteor/meteor";
+import styles from "./styles.js";
+import { withStyles } from "@material-ui/core/styles";
 
 const validate = values => {};
 const onSubmit = (values, currentUser) => {
@@ -14,11 +16,10 @@ const onSubmit = (values, currentUser) => {
     reserved: [],
     createdBy: Meteor.userId()
   };
-
   Meteor.call("events.newEvent", newEvent);
 };
 
-const EventForm = ({ currentUser }) => {
+const EventForm = ({ currentUser, classes }) => {
   return (
     <Form
       onSubmit={values => onSubmit(values, currentUser)}
@@ -26,74 +27,81 @@ const EventForm = ({ currentUser }) => {
       render={({ handleSubmit, pristine, invalid }) => (
         <form>
           <h2>Create An Event</h2>
-          <Field
-            name="title"
-            render={({ input, meta }) => (
-              <div>
-                <label>Event Name:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="eventDescription"
-            render={({ input, meta }) => (
-              <div>
-                <label>Event Description:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="artist"
-            render={({ input, meta }) => (
-              <div>
-                <label>Artist:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="date"
-            render={({ input, meta }) => (
-              <div>
-                <label>Date:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="location"
-            render={({ input, meta }) => (
-              <div>
-                <label>Location:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="genre"
-            render={({ input, meta }) => (
-              <div>
-                <label>Genre:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-
-          <button type="submit" onClick={handleSubmit}>
+          <div className={classes.container}>
+            <div className={classes.columnOne}>
+              <Field
+                name="title"
+                render={({ input, meta }) => (
+                  <div className={classes.field}>
+                    <label>Event Name</label>
+                    <textarea {...input} className={classes.fieldInput} />
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                  </div>
+                )}
+              />
+              <Field
+                name="eventDescription"
+                render={({ input, meta }) => (
+                  <div className={classes.field}>
+                    <label>Event Description</label>
+                    <textarea {...input} className={classes.fieldInput} />
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                  </div>
+                )}
+              />
+              <Field
+                name="artist"
+                render={({ input, meta }) => (
+                  <div className={classes.field}>
+                    <label>Artist</label>
+                    <textarea {...input} className={classes.fieldInput} />
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                  </div>
+                )}
+              />
+            </div>
+            <div className={classes.columnTwo}>
+              <Field
+                name="date"
+                render={({ input, meta }) => (
+                  <div className={classes.field}>
+                    <label>Date</label>
+                    <textarea {...input} className={classes.fieldInput} />
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                  </div>
+                )}
+              />
+              <Field
+                name="location"
+                render={({ input, meta }) => (
+                  <div className={classes.field}>
+                    <label>Location</label>
+                    <textarea {...input} className={classes.fieldInput} />
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                  </div>
+                )}
+              />
+              <Field
+                name="genre"
+                render={({ input, meta }) => (
+                  <div className={classes.field}>
+                    <label>Genre</label>
+                    <textarea {...input} className={classes.fieldInput} />
+                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                  </div>
+                )}
+              />
+            </div>
+            <button className={classes.button} type="submit" onClick={handleSubmit}>
             Submit
           </button>
+          </div>
+
+         
         </form>
       )}
     />
   );
 };
 
-export default EventForm
+export default withStyles(styles)(EventForm);
