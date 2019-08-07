@@ -8,6 +8,8 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import Gravatar from "react-gravatar";
 
 const ProfileCard = ({ currentUser }) => {
+  console.log(currentUser);
+
   return (
     <div>
       <Card>

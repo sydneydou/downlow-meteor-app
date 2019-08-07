@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
 import { Meteor } from "meteor/meteor";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Slide from "@material-ui/core/Slide";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const validate = values => {};
 const onSubmit = (values, currentUser) => {
@@ -19,81 +31,126 @@ const onSubmit = (values, currentUser) => {
 };
 
 const EventForm = ({ currentUser }) => {
-  return (
-    <Form
-      onSubmit={values => onSubmit(values, currentUser)}
-      validate={validate}
-      render={({ handleSubmit, pristine, invalid }) => (
-        <form>
-          <h2>Create An Event</h2>
-          <Field
-            name="title"
-            render={({ input, meta }) => (
-              <div>
-                <label>Event Name:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="eventDescription"
-            render={({ input, meta }) => (
-              <div>
-                <label>Event Description:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="artist"
-            render={({ input, meta }) => (
-              <div>
-                <label>Artist:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="date"
-            render={({ input, meta }) => (
-              <div>
-                <label>Date:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="location"
-            render={({ input, meta }) => (
-              <div>
-                <label>Location:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
-          <Field
-            name="genre"
-            render={({ input, meta }) => (
-              <div>
-                <label>Genre:</label>
-                <textarea {...input} />
-                {meta.touched && meta.error && <span>{meta.error}</span>}
-              </div>
-            )}
-          />
+  const [open, setOpen] = React.useState(false);
 
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </form>
-      )}
-    />
+  function handleClickOpen() {
+    setOpen(true);
+  }
+
+  function handleClose() {
+    setOpen(false);
+  }
+
+  return (
+    <div>
+      <Form
+        onSubmit={values => {
+          onSubmit(values, currentUser);
+          handleClickOpen();
+        }}
+        validate={validate}
+        render={({ handleSubmit, pristine, invalid }) => (
+          <form>
+            <h2>Create An Event</h2>
+            <Field
+              name="title"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Event Name:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+            <Field
+              name="eventDescription"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Event Description:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+            <Field
+              name="artist"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Artist:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+            <Field
+              name="date"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Date:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+            <Field
+              name="location"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Location:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+            <Field
+              name="genre"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Genre:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              disabled={pristine || invalid}
+            >
+              Submit
+            </button>
+          </form>
+        )}
+      />
+      <div>
+        <Dialog
+          open={open}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle>Congrats!</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              You just successfully created an event! This event will now be
+              visible for all users to attend.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Link to="/profile">
+              <Button onClick={handleClose}>Show me my new event!</Button>
+            </Link>
+            <Link to="/home">
+              <Button onClick={handleClose}>Show me other events!</Button>
+            </Link>
+          </DialogActions>
+        </Dialog>
+      </div>
+    </div>
   );
 };
 
-export default EventForm
+export default EventForm;
