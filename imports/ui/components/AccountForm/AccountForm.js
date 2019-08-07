@@ -46,7 +46,7 @@ const AccountForm = ({ classes }) => (
     validate={() => validate()}
     render={({ handleSubmit, pristine, invalid }) => (
       <form>
-        <h2>Create an Account</h2>
+        <h2 className={classes.CreateTitle}>Create an Account</h2>
 
         <Field
           name="username"
@@ -55,7 +55,7 @@ const AccountForm = ({ classes }) => (
               <textarea
                 {...input}
                 placeholder="Username"
-                className={classes.InputField}
+                className={classes["input-field"]}
               />
               {meta.touched && meta.error && <span>{meta.error}</span>}
             </div>
@@ -69,7 +69,7 @@ const AccountForm = ({ classes }) => (
               <textarea
                 {...input}
                 placeholder="Email"
-                className={classes.InputField}
+                className={classes["input-field"]}
               />
               {meta.touched && meta.error && <span>{meta.error}</span>}
             </div>
@@ -83,7 +83,7 @@ const AccountForm = ({ classes }) => (
               <textarea
                 {...input}
                 placeholder="Password"
-                className={classes.InputField}
+                className={classes["input-field"]}
               />
               {meta.touched && meta.error && <span>{meta.error}</span>}
             </div>
@@ -94,7 +94,7 @@ const AccountForm = ({ classes }) => (
           className={classes.btn}
           variant="contained"
           type="submit"
-          // disabled={pristine || invalid}
+          disabled={pristine || invalid}
           onClick={handleSubmit}
         >
           Submit

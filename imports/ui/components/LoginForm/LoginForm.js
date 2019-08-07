@@ -29,8 +29,8 @@ const LoginForm = ({ classes }) => (
     onSubmit={values => onSubmit(values)}
     validate={() => validate()}
     render={({ handleSubmit, pristine, invalid }) => (
-      <form>
-        <h2>Login</h2>
+      <form className={classes.Form}>
+        <h2 className={classes.LoginTitle}>Login</h2>
 
         <Field
           name="email"
@@ -39,7 +39,7 @@ const LoginForm = ({ classes }) => (
               <textarea
                 {...input}
                 placeholder="Email"
-                className={classes.InputField}
+                className={classes["input-field"]}
               />
               {meta.touched && meta.error && <span>{meta.error}</span>}
             </div>
@@ -53,7 +53,7 @@ const LoginForm = ({ classes }) => (
               <textarea
                 {...input}
                 placeholder="Password"
-                className={classes.InputField}
+                className={classes["input-field"]}
               />
               {meta.touched && meta.error && <span>{meta.error}</span>}
             </div>
@@ -64,7 +64,7 @@ const LoginForm = ({ classes }) => (
           className={classes.btn}
           variant="contained"
           type="submit"
-          // disabled={pristine || invalid}
+          disabled={pristine || invalid}
           onClick={handleSubmit}
         >
           Welcome Back!
