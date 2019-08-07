@@ -1,7 +1,12 @@
 const styles = theme => ({
   loginWrapper: {
     fontSize: "3rem",
-    textAlign: "center"
+    textAlign: "center",
+    color: "red"
+  },
+  btn: {
+    color: "white",
+    backgroundColor: "#40E0D0"
   }
 });
 

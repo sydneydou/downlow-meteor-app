@@ -25,6 +25,7 @@ class LoginPage extends Component {
       <div className={classes.loginWrapper}>
         {showLogin ? <LoginForm /> : <AccountForm />}
         <Button
+          className={classes.btn}
           type="button"
           onClick={() => {
             this.showLogin();
