@@ -7,15 +7,18 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
+import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 
 class EventCard extends Component {
   addUserReservation = eventId => {
     Meteor.call("events.addUserReservation", eventId, Meteor.userId());
   };
 
+  deleteUserEvent = eventId => {
+    Meteor.call("events.deleteUserEvent", eventId);
+  };
   render() {
     const { event, classes } = this.props;
-    console.log(event.reserved.length);
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
@@ -31,6 +34,11 @@ class EventCard extends Component {
                   There will be {event.reserved.length} users attending this
                   event!
                 </h3>
+                {Meteor.userId() === event.createdBy ? (
+                  <DeleteOutlinedIcon
+                    onClick={() => this.deleteUserEvent(event._id)}
+                  />
+                ) : null}
                 {Meteor.userId() !== event.createdBy ? (
                   <Button
                     variant="contained"
@@ -47,5 +55,6 @@ class EventCard extends Component {
     );
   }
 }
+//subscribe to event
 
 export default withStyles(styles)(EventCard);

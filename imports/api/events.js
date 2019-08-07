@@ -13,12 +13,13 @@ Meteor.methods({
   "events.newEvent"(newEvent) {
     Events.insert({ ...newEvent });
   },
-  "events.usersEvents"(userId) {
-    return Events.find({ createdBy: userId }).fetch();
-  },
   "events.addUserReservation"(eventId, userId) {
     Events.update({ _id: eventId }, { $addToSet: { reserved: userId } });
+  },
+  "events.deleteUserEvent"(eventId) {
+    Events.remove(eventId);
   }
+
   // “events.removeEvent”(){
   //   // if current user id matches created by user id
   // },
