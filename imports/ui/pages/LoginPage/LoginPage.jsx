@@ -21,18 +21,21 @@ class LoginPage extends Component {
   render() {
     const { showLogin } = this.state;
     const { classes } = this.props;
+
     return (
-      <div className={classes.loginWrapper}>
-        {showLogin ? <LoginForm /> : <AccountForm />}
-        <Button
-          className={classes.btn}
-          type="button"
-          onClick={() => {
-            this.showLogin();
-          }}
-        >
-          {showLogin ? "Create an account" : "Login Here"}
-        </Button>
+      <div className={classes.LoginPageBg}>
+        <div className={classes.loginWrapper}>
+          {showLogin ? <LoginForm /> : <AccountForm />}
+          <Button
+            className={classes.btn}
+            type="button"
+            onClick={() => {
+              this.showLogin();
+            }}
+          >
+            {showLogin ? "Create an account" : "Login Here"}
+          </Button>
+        </div>
       </div>
     );
   }
