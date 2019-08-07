@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import AccountForm from "../../components/AccountForm";
 import LoginForm from "../../components/LoginForm";
-import "./styles.css";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles";
+import Button from "@material-ui/core/Button";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -18,20 +20,21 @@ class LoginPage extends Component {
   };
   render() {
     const { showLogin } = this.state;
+    const { classes } = this.props;
     return (
-      <div className="login-wrapper">
+      <div className={classes.loginWrapper}>
         {showLogin ? <LoginForm /> : <AccountForm />}
-        <button
+        <Button
           type="button"
           onClick={() => {
             this.showLogin();
           }}
         >
           {showLogin ? "Create an account" : "Login Here"}
-        </button>
+        </Button>
       </div>
     );
   }
 }
 
-export default LoginPage;
+export default withStyles(styles)(LoginPage);

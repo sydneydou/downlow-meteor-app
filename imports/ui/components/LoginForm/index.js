@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
-
+import Button from "@material-ui/core/Button";
+// import { withStyles } from "@material-ui/styles";
+// import styles from "./styles";
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
 
@@ -50,13 +52,14 @@ const LoginForm = () => (
           )}
         />
 
-        <button
+        <Button
+          variant="contained"
           type="submit"
           disabled={pristine || invalid}
           onClick={handleSubmit}
         >
           Welcome Back!
-        </button>
+        </Button>
       </form>
     )}
   />
