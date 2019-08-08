@@ -67,7 +67,6 @@ class EventGrid extends Component {
 
         {showAllEvents ? (
           <div>
-            <h2 className={classes.color}>View All Events</h2>
             <Grid item xs={12}>
               {events &&
                 events.map(event => (
