@@ -3,10 +3,10 @@ const styles = theme => ({
     width: "380px",
     height: "280px",
     margin: "20px 10px",
-    border: "#19B4A4",
     background: "rgba(0,0,0,0.2)",
     color: "#fff",
-    fontWeight: "light"
+    fontWeight: "light",
+    border: "2px solid #19B4A4"
   }
 });
 
