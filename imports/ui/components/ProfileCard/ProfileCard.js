@@ -7,11 +7,9 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Gravatar from "react-gravatar";
 
-const ProfileCard = ({ currentUser }) => {
-  console.log(currentUser);
-
+const ProfileCard = ({ currentUser, classes }) => {
   return (
-    <div>
+    <div className={classes.profileCard}>
       <Card>
         <CardActionArea>
           <CardContent>
@@ -24,4 +22,4 @@ const ProfileCard = ({ currentUser }) => {
   );
 };
 
-export default ProfileCard;
+export default withStyles(styles)(ProfileCard);

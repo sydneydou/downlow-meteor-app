@@ -38,7 +38,7 @@ class EventGrid extends Component {
 
         {showAllEvents ? (
           <div>
-            <h2>View All Events</h2>
+            <h2 className={classes.color}>View All Events</h2>
             <Grid
               container
               direction="row"
@@ -54,7 +54,8 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <h2>View Events I'm Attending</h2>
+            <h2 className={classes.color}>View Events I'm Attending</h2>
+
             <Grid
               container
               direction="row"

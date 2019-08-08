@@ -17,6 +17,7 @@ class ProfilePage extends Component {
     return (
       <div className={classes.gradientContainer}>
         <ProfileCard currentUser={currentUser} />
+        <h1 className={classes.profileHeader}>Events You Have Created</h1>
         <EventGrid events={userEvents} />
       </div>
     );
