@@ -18,16 +18,10 @@ Meteor.methods({
   },
   "events.deleteUserEvent"(eventId) {
     Events.remove(eventId);
+  },
+  "events.removeUserReservation"(eventId, userId) {
+    console.log(eventId);
+    console.log(userId);
+    Events.update({ _id: eventId }, { $pull: { reserved: userId } });
   }
-
-  // “events.removeEvent”(){
-  //   // if current user id matches created by user id
-  // },
-  // “events.findCreatedEvent”(){
-  //   // if created by user id matches current user id
-  // },
-  // “events.usersEvents”(){
-  //   // userid === events.createdBy
-
-  // }
 });

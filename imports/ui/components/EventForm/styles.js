@@ -72,7 +72,8 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: "rgba(0,0,0,0)",
       border: "2px solid #19B4A4"
-    }
+    },
+    createHeader: {}
   }
 });
 
