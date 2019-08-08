@@ -65,12 +65,7 @@ class EventGrid extends Component {
         )}
         {showAllEvents ? (
           <div>
-            <Grid
-              container
-              direction="row"
-              className={classes.homeContainer}
-              spacing={5}
-            >
+            <Grid item xs={12}>
               {events &&
                 events.map(event => (
                   <EventCard key={event._id} event={event} />
@@ -79,12 +74,7 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <Grid
-              container
-              direction="row"
-              className={classes.homeContainer}
-              spacing={5}
-            >
+            <Grid item xs={12}>
               {events &&
                 events
                   .filter(event => event.reserved.includes(Meteor.userId()))
