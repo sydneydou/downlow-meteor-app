@@ -9,6 +9,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -30,7 +32,7 @@ const onSubmit = (values, currentUser) => {
   Meteor.call("events.newEvent", newEvent);
 };
 
-const EventForm = ({ currentUser }) => {
+const EventForm = ({ currentUser, classes }) => {
   const [open, setOpen] = React.useState(false);
 
   function handleClickOpen() {
@@ -113,13 +115,14 @@ const EventForm = ({ currentUser }) => {
               )}
             />
 
-            <button
+            <Button
               type="submit"
+              className={classes.btn}
               onClick={handleSubmit}
               disabled={pristine || invalid}
             >
               Submit
-            </button>
+            </Button>
           </form>
         )}
       />
@@ -153,4 +156,4 @@ const EventForm = ({ currentUser }) => {
   );
 };
 
-export default EventForm;
+export default withStyles(styles)(EventForm);
