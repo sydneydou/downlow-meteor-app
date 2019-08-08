@@ -1,12 +1,52 @@
 const styles = theme => ({
-  // container: {
-  //   background:
-  //     "linear-gradient(to bottom, #000000 0%,#290342 38%,#290342 38%,#290342 48%,#290342 50%,#290342 61%,#000000 99%,#7db9e8 100%)"
-  // },
-  // homeContainer: {
-  //   background:
-  //     "linear-gradient(to bottom, #000000 28%,#000000 28%,#000000 30%,#000000 30%,#1c3e73 89%,#1c3e73 91%,#1c3e73 100%,#000000 100%,#7db9e8 100%,#1c3e73 100%,#000000 101%)"
-  // }
+  ButtonWrapper: {
+    display: "flex",
+    flexWrap: "wrap",
+    width: "100%",
+    justifyContent: "space-around"
+  },
+  ButtonWrapperToggled: {
+    display: "flex",
+    flexWrap: "wrap",
+    width: "100%",
+    justifyContent: "space-around"
+  },
+  AllEventsButton: {
+    width: "30%",
+    color: "white",
+    backgroundColor: "#19B4A4",
+    marginBottom: "20px",
+
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,0)",
+      border: "2px solid #19B4A4"
+    }
+  },
+  AllEventsTitle: {
+    border: "2px solid #19B4A4",
+    color: "white",
+    width: "30%",
+    padding: "8px",
+    textAlign: "center"
+  },
+  AttendingEventsButton: {
+    width: "30%",
+    order: "2",
+    color: "white",
+    backgroundColor: "#19B4A4",
+
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,0)",
+      border: "2px solid #19B4A4"
+    }
+  },
+  AttendingEventsTitle: {
+    border: "2px solid #19B4A4",
+    color: "white",
+    width: "30%",
+    padding: "8px",
+    textAlign: "center"
+  },
   color: {
     color: "white"
   }
