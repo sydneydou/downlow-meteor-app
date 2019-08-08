@@ -12,77 +12,74 @@ import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 class EventCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      toggleButtonClick: true
-    };
   }
-  addUserReservation = entireEvent => {
+  addUserReservation = async entireEvent => {
     const eventId = entireEvent._id;
-    Meteor.call("events.addUserReservation", eventId, Meteor.userId());
-    this.setState({
-      toggleButtonClick: false
-    });
+    await Meteor.call("events.addUserReservation", eventId, Meteor.userId());
   };
-  removeUserReservation = entireEvent => {
+  removeUserReservation = async entireEvent => {
     const eventId = entireEvent._id;
-    Meteor.call("events.removeUserReservation", eventId, Meteor.userId());
-    this.setState({
-      toggleButtonClick: true
-    });
+    await Meteor.call("events.removeUserReservation", eventId, Meteor.userId());
   };
+
+  checkForUserReservation = event => {
+    return event.reserved.includes(Meteor.userId());
+  };
+
   deleteUserEvent = eventId => {
     Meteor.call("events.deleteUserEvent", eventId);
   };
   render() {
-    const { toggleButtonClick } = this.state;
     const { event, classes } = this.props;
     return (
-      <div className={classes.container}>
-        <Card className={classes.card}>
-          <CardActionArea>
-            <CardContent>
-              <div className={classes.cardInfoContent}>
-                {/* <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" /> */}
-                <h1 className={classes.cardTitle}>{event.title}</h1>
-                <h2 className={classes.singleContent}>{event.artist}</h2>
-                <h2 className={classes.singleContent}>
-                  {event.eventDescription}
-                </h2>
-                <h2 className={classes.singleContent}>{event.date}</h2>
-                <h3 className={classes.singleContent}>{event.genre}</h3>
-                <h3 className={classes.singleContent}>
-                  There will be {event.reserved.length} users attending this
-                  event!
-                </h3>
-                {Meteor.userId() === event.createdBy ? (
-                  <DeleteOutlinedIcon
-                    onClick={() => this.deleteUserEvent(event._id)}
-                  />
-                ) : null}
-                {Meteor.userId() !== event.createdBy ? (
-                  toggleButtonClick ? (
+      event && (
+        <div className={classes.container}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardContent>
+                <div className={classes.cardInfoContent}>
+                  <h1 className={classes.cardTitle}>{event.title}</h1>
+                  <h2 className={classes.singleContent}>{event.artist}</h2>
+                  <h2 className={classes.singleContent}>
+                    {event.eventDescription}
+                  </h2>
+                  <h2 className={classes.singleContent}>{event.date}</h2>
+                  <h3 className={classes.singleContent}>{event.genre}</h3>
+                  <h3 className={classes.singleContent}>
+                    There will be {event.reserved.length} users attending this
+                    event!
+                  </h3>
+                  {Meteor.userId() === event.createdBy ? (
+                    <DeleteOutlinedIcon
+                      onClick={() => this.deleteUserEvent(event._id)}
+                    />
+                  ) : null}
+                  {Meteor.userId() !== event.createdBy ? (
+                    // toggleButtonClick ? (
                     <Button
                       variant="contained"
-                      className={classes.btn}
-                      onClick={() => this.addUserReservation(event)}
+                      className={
+                        this.checkForUserReservation(event)
+                          ? classes.btnClicked
+                          : classes.btn
+                      }
+                      onClick={() =>
+                        this.checkForUserReservation(event)
+                          ? this.removeUserReservation(event)
+                          : this.addUserReservation(event)
+                      }
                     >
-                      Count Me In!
+                      {this.checkForUserReservation(event)
+                        ? "Count Me Out!"
+                        : "Count Me In!"}
                     </Button>
-                  ) : (
-                    <Button
-                      variant="contained"
-                      className={classes.btnClicked}
-                      onClick={() => this.removeUserReservation(event)}
-                    >
-                      Count Me Out!
-                    </Button>
-                  )
-                ) : null}
-              </div>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </div>
+                  ) : null}
+                </div>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </div>
+      )
     );
   }
 }
