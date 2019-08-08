@@ -44,8 +44,11 @@ class EventCard extends Component {
         <Card className={classes.card}>
           <CardActionArea>
             <CardContent>
-              <div className={classes.cardInfoContent}>
-                {/* <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" /> */}
+              <div
+                className={classes.cardInfoContent}
+                
+              >
+                <img src={event.imageurl} className = {classes.eventImage}/>
                 <h1 className={classes.cardTitle}>{event.title}</h1>
                 <h2 className={classes.singleContent}>{event.artist}</h2>
                 <h2 className={classes.singleContent}>
@@ -89,6 +92,5 @@ class EventCard extends Component {
     );
   }
 }
-//subscribe to event
 
 export default withStyles(styles)(EventCard);
