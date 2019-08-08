@@ -72,8 +72,33 @@ const styles = theme => ({
     "&:hover": {
       backgroundColor: "rgba(0,0,0,0)",
       border: "2px solid #19B4A4"
-    },
-    createHeader: {}
+    }
+  },
+  //start of Pop Up styles
+  EventPopupContainer: {
+    color: "black",
+    border: "2px Solid white"
+  },
+  EventPopupTitle: {
+    fontColor: "white"
+  },
+  EventPopupContent: {
+    fontColor: "white"
+  },
+  EventPopupLink: {
+    textDecoration: "none"
+  },
+  EventPopupBtns: {
+    color: "white",
+    backgroundColor: "#19B4A4",
+    border: "2px solid #19B4A4",
+    alignSelf: "center",
+
+    "&:hover": {
+      color: "#19B4A4",
+      backgroundColor: "rgba(0,0,0,0)",
+      border: "2px solid #19B4A4"
+    }
   }
 });
 
