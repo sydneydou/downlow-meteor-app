@@ -1,6 +1,6 @@
 const styles = theme => ({
   profileCard: {
-    paddingTop: "6em",
+    paddingTop: "6rem",
     paddingBottom: "3em",
     paddingLeft: "12em",
     paddingRight: "12em"
