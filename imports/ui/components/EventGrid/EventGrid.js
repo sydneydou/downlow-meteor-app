@@ -24,7 +24,7 @@ class EventGrid extends Component {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
     return (
-      <div style={{marginTop: -16}}>
+      <div style={{ marginTop: -16 }}>
         {this.props.location.pathname === "/home" && (
           <Button
             variant="contained"
@@ -32,25 +32,43 @@ class EventGrid extends Component {
               this.showAllEvents();
             }}
           >
-            {showAllEvents ? "Events I'm Attending" : "All Events"}
+            {showAllEvents ? "View Events I'm Attending" : "View All Events"}
           </Button>
         )}
 
-          {showAllEvents ? (
-            <Grid container direction="row" justify="space-between" className={classes.homeContainer} spacing={5}>
+        {showAllEvents ? (
+          <div>
+            <h2>View All Events</h2>
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              className={classes.homeContainer}
+              spacing={5}
+            >
               {events &&
                 events.map(event => (
                   <EventCard key={event._id} event={event} />
                 ))}
             </Grid>
-          ) : (
-            <Grid container direction="row" justify="space-between" className={classes.homeContainer} spacing={5}>
+          </div>
+        ) : (
+          <div>
+            <h2>View Events I'm Attending</h2>
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              className={classes.homeContainer}
+              spacing={5}
+            >
               {events &&
                 events
                   .filter(event => event.reserved.includes(Meteor.userId()))
                   .map(event => <EventCard key={event._id} event={event} />)}
             </Grid>
-          )}
+          </div>
+        )}
       </div>
     );
   }
