@@ -24,12 +24,25 @@ const styles = theme => ({
     color: "#fff",
     fontWeight: "lighter"
   },
-  fieldInput: {
+  "input-field": {
+    backgroundColor: "rgba(0,0,0,0.6)",
+    border: "2px solid white",
     borderRadius: "10px",
-    marginLeft: "10px"
-  },
-  button: {
-      backgroundColor: "#24E5DF"
+    width: "90%",
+    color: "white",
+    alignItems: "center",
+    fontSize: "20px",
+    height: "30px",
+    paddingLeft: "5px",
+    paddingRight: "5px",
+    marginBottom: "5px",
+
+    "&::placeholder": {
+      color: "rgba(190, 190, 191, 0.8)",
+      fontSize: "16px",
+      alignSelf: "center",
+      marginTop: "4px"
+    }
   }
 });
 

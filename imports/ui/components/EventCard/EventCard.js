@@ -10,7 +10,8 @@ import { Meteor } from "meteor/meteor";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 
 class EventCard extends Component {
-  addUserReservation = eventId => {
+  addUserReservation = entireEvent => {
+    const eventId = entireEvent._id;
     Meteor.call("events.addUserReservation", eventId, Meteor.userId());
   };
 
@@ -19,6 +20,7 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
+    console.log(event);
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
@@ -42,7 +44,7 @@ class EventCard extends Component {
                 {Meteor.userId() !== event.createdBy ? (
                   <Button
                     variant="contained"
-                    onClick={() => this.addUserReservation(event._id)}
+                    onClick={() => this.addUserReservation(event)}
                   >
                     Count Me In!
                   </Button>

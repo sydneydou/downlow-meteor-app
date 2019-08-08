@@ -8,17 +8,6 @@ import styles from "./styles";
 import { Link } from "react-router-dom";
 import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
-import Button from "@material-ui/core/Button";
-//popper for notification
-import Popper from "@material-ui/core/Popper";
-import Fade from "@material-ui/core/Fade";
-import Paper from "@material-ui/core/Paper";
-import NotificationsActive from "@material-ui/icons/NotificationsActive";
-// end of popper
-
-// import Box from "@material-ui/core/Box";
-// import { flexbox } from '@material-ui/system';
-// import { NavLinks } from "react-router-dom";
 
 class Header extends Component {
   render() {
@@ -26,16 +15,14 @@ class Header extends Component {
 
     return (
       <div className={classes.container}>
-        <Link to="/home">
-          <p>DownLow</p>
-        </Link>
         <Link to="/create">
-          <p>Add Event</p>
+          <p className={classes.headerText}>Add Event</p>
         </Link>
-        <div className={classes.NotificationsContainer}>
-          <LongMenu classes={classes} />
-          <SimplePopper />
-        </div>
+        <Link to="/home">
+          <p className={classes.headerText}>DownLow</p>
+        </Link>
+
+        <LongMenu classes={classes} />
       </div>
     );
   }
@@ -56,8 +43,6 @@ function LongMenu({ classes }) {
   }
 
   function logout() {
-    console.log("trying to logout");
-    console.log(Meteor.userId());
     event.preventDefault();
     Meteor.logout(function(error) {
       if (error) {
@@ -101,33 +86,6 @@ function LongMenu({ classes }) {
           <span>Logout</span>
         </MenuItem>
       </Menu>
-    </div>
-  );
-}
-
-function SimplePopper() {
-  // const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  function handleClick(event) {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
-  }
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popper" : undefined;
-
-  return (
-    <div>
-      <Button aria-describedby={id} variant="contained" onClick={handleClick}>
-        <NotificationsActive />
-      </Button>
-      <Popper id={id} open={open} anchorEl={anchorEl} transition>
-        {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
-            <Paper>(x) amount of Users RSVP'd</Paper>
-          </Fade>
-        )}
-      </Popper>
     </div>
   );
 }

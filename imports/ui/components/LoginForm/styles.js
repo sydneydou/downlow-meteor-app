@@ -4,7 +4,12 @@ const styles = theme => ({
     backgroundColor: "#19B4A4",
     width: "80%",
     marginBottom: "20px",
-    marginTop: "12px"
+    marginTop: "12px",
+
+    "&:hover": {
+      backgroundColor: "rgba(0,0,0,0)",
+      border: "2px solid #19B4A4"
+    }
   },
   "input-field": {
     backgroundColor: "rgba(0,0,0,0.6)",
