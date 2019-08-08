@@ -13,7 +13,7 @@ class HomePage extends Component {
     const { currentUser, classes, events } = this.props;
     return (
       <div>
-        <h1 style={{ height: 50 }}>
+        <h1 style={{ height: 50, margin: 0 }}>
           Welcome to DownLow {currentUser.username}!
         </h1>
         <Banner />

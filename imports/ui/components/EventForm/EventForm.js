@@ -20,7 +20,7 @@ const validate = values => {};
 const onSubmit = (values, currentUser) => {
   event.preventDefault();
   const newEvent = {
-    title: values.eventName,
+    title: values.title,
     artist: values.artist,
     date: values.date,
     genre: values.genre,
