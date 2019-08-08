@@ -11,7 +11,6 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
-import Button from "@material-ui/core/Button";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -61,8 +60,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="title"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Event Name:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Event Name"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -73,8 +75,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="eventDescription"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Event Description:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Event Description"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -85,8 +90,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="artist"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Artist:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Artist"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -99,8 +107,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="date"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Date:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Date"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -108,11 +119,15 @@ const EventForm = ({ currentUser, classes }) => {
                     )}
                   />
                   <Field
+                    className={classes["input-field"]}
                     name="location"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Location:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Location"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -123,8 +138,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="genre"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Genre:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Genre"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -132,37 +150,17 @@ const EventForm = ({ currentUser, classes }) => {
                     )}
                   />
                 </div>
-              )}
-            />
-            <Field
-              name="location"
-              render={({ input, meta }) => (
-                <div>
-                  <label>Location:</label>
-                  <textarea {...input} />
-                  {meta.touched && meta.error && <span>{meta.error}</span>}
-                </div>
-              )}
-            />
-            <Field
-              name="genre"
-              render={({ input, meta }) => (
-                <div>
-                  <label>Genre:</label>
-                  <textarea {...input} />
-                  {meta.touched && meta.error && <span>{meta.error}</span>}
-                </div>
-              )}
-            />
-
-            <Button
-              type="submit"
-              className={classes.btn}
-              onClick={handleSubmit}
-              disabled={pristine || invalid}
-            >
-              Submit
-            </Button>
+              </div>
+              <Button
+                className={classes.btn}
+                type="submit"
+                onClick={handleSubmit}
+                disabled={pristine || invalid}
+                className={classes.button}
+              >
+                Submit
+              </Button>
+            </div>
           </form>
         )}
       />
@@ -196,4 +194,4 @@ const EventForm = ({ currentUser, classes }) => {
   );
 };
 
-export default withStyles(styles)(EventForm)
+export default withStyles(styles)(EventForm);

@@ -26,10 +26,11 @@ const onSubmit = values => {
 
 const LoginForm = ({ classes }) => (
   <Form
+    className={classes.Form}
     onSubmit={values => onSubmit(values)}
     validate={() => validate()}
     render={({ handleSubmit, pristine, invalid }) => (
-      <form className={classes.Form}>
+      <form>
         <h2 className={classes.LoginTitle}>Login</h2>
 
         <Field
