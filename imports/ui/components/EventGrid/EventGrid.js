@@ -20,7 +20,6 @@ class EventGrid extends Component {
       showAllEvents: !this.state.showAllEvents
     });
   };
-
   render() {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
@@ -59,11 +58,14 @@ class EventGrid extends Component {
           </div>
         )}
         {/* </div> */}
-
         {showAllEvents ? (
           <div>
-            <h2 className={classes.color}>View All Events</h2>
-            <Grid item xs={12}>
+            <Grid
+              container
+              direction="row"
+              className={classes.homeContainer}
+              spacing={5}
+            >
               {events &&
                 events.map(event => (
                   <EventCard key={event._id} event={event} />
@@ -89,5 +91,4 @@ class EventGrid extends Component {
     );
   }
 }
-
 export default withRouter(withStyles(styles)(EventGrid));
