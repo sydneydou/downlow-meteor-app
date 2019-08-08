@@ -23,7 +23,7 @@ class EventCard extends Component {
       <div className={classes.container}>
         <Card className={classes.card}>
           <CardActionArea>
-            <CardContent>
+            <CardContent className={classes.cardInfoContent}>
               <div>
                 <h1>{event.title}</h1>
                 <h2>{event.artist}</h2>
