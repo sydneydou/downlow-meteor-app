@@ -12,13 +12,14 @@ class HomePage extends Component {
   render() {
     const { currentUser, classes, events } = this.props;
     return (
-      <div className={classes.gradientcontainer}>
+      <div>
         <h1 style={{ height: 50 }}>
           Welcome to DownLow {currentUser.username}!
         </h1>
         <Banner />
-
-        <EventGrid events={events} />
+        <div className={classes.gradientContainer}>
+          <EventGrid events={events} />
+        </div>
       </div>
     );
   }
