@@ -8,6 +8,8 @@ import styles from "./styles";
 import { Link } from "react-router-dom";
 import { Meteor } from "meteor/meteor";
 import { Accounts } from "meteor/accounts-base";
+import LogoutIcon from "@material-ui/icons/PowerSettingsNew";
+import ProfileIcon from "@material-ui/icons/PersonOutline";
 
 class Header extends Component {
   render() {
@@ -15,10 +17,10 @@ class Header extends Component {
 
     return (
       <div className={classes.container}>
-        <Link to="/create">
+        <Link to="/create" className={classes.link}>
           <p className={classes.headerText}>Add Event</p>
         </Link>
-        <Link to="/home">
+        <Link to="/home" className={classes.link}>
           <p className={classes.headerText}>DownLow</p>
         </Link>
 
@@ -60,7 +62,7 @@ function LongMenu({ classes }) {
         onClick={handleClick}
         className={classes.VertIcon}
       >
-        <MoreVertIcon />
+        <MoreVertIcon className={classes.dropDown} />
       </IconButton>
       <Menu
         id="long-menu"
@@ -80,10 +82,16 @@ function LongMenu({ classes }) {
           to="/profile"
           className={classes["long-menu-item"]}
         >
-          <span>Profile</span>
+          <span>
+            <ProfileIcon className={classes.iconContainer} />
+            Profile
+          </span>
         </MenuItem>
         <MenuItem onClick={logout} className={classes["long-menu-item"]}>
-          <span>Logout</span>
+          <span>
+            <LogoutIcon className={classes.iconContainer} />
+            Logout
+          </span>
         </MenuItem>
       </Menu>
     </div>

@@ -11,7 +11,8 @@ const styles = theme => ({
     fontSize: "55px",
     display: "flex",
     justifyContent: "center",
-    paddingTop: "13rem"
+    paddingTop: "13rem",
+    marginTop: ".5em"
   }
 });
 
