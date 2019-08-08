@@ -25,39 +25,44 @@ class EventGrid extends Component {
     const { classes, events } = this.props;
     return (
       <div style={{ marginTop: -16 }}>
-        {/* <div className={classes.ButtonWrapper}> */}
-        {showAllEvents ? (
-          <div className={classes.ButtonWrapper}>
-            <Button
-              className={classes.AttendingEventsButton}
-              variant="contained"
-              onClick={() => {
-                this.showAllEvents();
-              }}
-            >
-              Events I'm Attending
-            </Button>
-            <Typography className={classes.AllEventsTitle} component="h2">
-              All Events
-            </Typography>
-          </div>
-        ) : (
-          <div className={classes.ButtonWrapperToggled}>
-            <Button
-              className={classes.AllEventsButton}
-              variant="contained"
-              onClick={() => {
-                this.showAllEvents();
-              }}
-            >
-              All Events
-            </Button>
-            <Typography className={classes.AttendingEventsTitle} component="h2">
-              Events I'm Attending
-            </Typography>
+        {this.props.location.pathname === "/home" && (
+          <div>
+            {showAllEvents ? (
+              <div className={classes.ButtonWrapper}>
+                <Button
+                  className={classes.AttendingEventsButton}
+                  variant="contained"
+                  onClick={() => {
+                    this.showAllEvents();
+                  }}
+                >
+                  Events I'm Attending
+                </Button>
+                <Typography className={classes.AllEventsTitle} component="h2">
+                  All Events
+                </Typography>
+              </div>
+            ) : (
+              <div className={classes.ButtonWrapperToggled}>
+                <Button
+                  className={classes.AllEventsButton}
+                  variant="contained"
+                  onClick={() => {
+                    this.showAllEvents();
+                  }}
+                >
+                  All Events
+                </Button>
+                <Typography
+                  className={classes.AttendingEventsTitle}
+                  component="h2"
+                >
+                  Events I'm Attending
+                </Typography>
+              </div>
+            )}
           </div>
         )}
-        {/* </div> */}
         {showAllEvents ? (
           <div>
             <Grid
