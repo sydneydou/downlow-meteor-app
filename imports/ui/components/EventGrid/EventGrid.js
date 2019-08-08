@@ -65,7 +65,6 @@ class EventGrid extends Component {
             <Grid
               container
               direction="row"
-              justify="space-between"
               className={classes.homeContainer}
               spacing={5}
             >
@@ -80,7 +79,6 @@ class EventGrid extends Component {
             <Grid
               container
               direction="row"
-              justify="space-between"
               className={classes.homeContainer}
               spacing={5}
             >

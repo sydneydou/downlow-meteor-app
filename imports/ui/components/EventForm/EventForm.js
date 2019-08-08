@@ -15,7 +15,6 @@ import { withStyles } from "@material-ui/styles";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
 const validate = values => {};
 const onSubmit = (values, currentUser) => {
   event.preventDefault();
@@ -30,18 +29,14 @@ const onSubmit = (values, currentUser) => {
   };
   Meteor.call("events.newEvent", newEvent);
 };
-
 const EventForm = ({ currentUser, classes }) => {
   const [open, setOpen] = React.useState(false);
-
   function handleClickOpen() {
     setOpen(true);
   }
-
   function handleClose() {
     setOpen(false);
   }
-
   return (
     <div className={classes.EventPageWrapper}>
       <Form
@@ -192,5 +187,4 @@ const EventForm = ({ currentUser, classes }) => {
     </div>
   );
 };
-
 export default withStyles(styles)(EventForm);

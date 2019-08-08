@@ -10,17 +10,35 @@ import { Meteor } from "meteor/meteor";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
 
 class EventCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      toggleButtonClick: true
+    };
+  }
+
   addUserReservation = entireEvent => {
     const eventId = entireEvent._id;
     Meteor.call("events.addUserReservation", eventId, Meteor.userId());
+    this.setState({
+      toggleButtonClick: false
+    });
+  };
+
+  removeUserReservation = entireEvent => {
+    const eventId = entireEvent._id;
+    Meteor.call("events.removeUserReservation", eventId, Meteor.userId());
+    this.setState({
+      toggleButtonClick: true
+    });
   };
 
   deleteUserEvent = eventId => {
     Meteor.call("events.deleteUserEvent", eventId);
   };
   render() {
+    const { toggleButtonClick } = this.state;
     const { event, classes } = this.props;
-    console.log(event);
     return (
       <div className={classes.container}>
         <Card className={classes.card}>
@@ -45,13 +63,23 @@ class EventCard extends Component {
                   />
                 ) : null}
                 {Meteor.userId() !== event.createdBy ? (
-                  <Button
-                    variant="contained"
-                    className={classes.btn}
-                    onClick={() => this.addUserReservation(event)}
-                  >
-                    Count Me In!
-                  </Button>
+                  toggleButtonClick ? (
+                    <Button
+                      variant="contained"
+                      className={classes.btn}
+                      onClick={() => this.addUserReservation(event)}
+                    >
+                      Count Me In!
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="contained"
+                      className={classes.btnClicked}
+                      onClick={() => this.removeUserReservation(event)}
+                    >
+                      Count Me Out!
+                    </Button>
+                  )
                 ) : null}
               </div>
             </CardContent>
