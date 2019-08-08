@@ -20,7 +20,7 @@ const styles = theme => ({
   singleContent: {
     margin: "0",
     padding: "1px 0",
-    fontSize: "14px",
+    fontSize: "14px"
   },
   cardInfoContent: {
     marginTop: "9.2rem",
@@ -33,12 +33,16 @@ const styles = theme => ({
     backgroundColor: "#19B4A4",
     width: "90%",
     marginBottom: "20px",
-    marginTop: "12px",
-    "&:hover": {
-      backgroundColor: "rgba(0,0,0,0)",
-      border: "2px solid #19B4A4"
-    }
+    marginTop: "12px"
   },
+  btnClicked: {
+    color: "white",
+    backgroundColor: "rgba(0,0,0,0)",
+    width: "90%",
+    marginBottom: "20px",
+    marginTop: "12px",
+    border: "2px solid #19B4A4"
+  }
 });
 
 export default styles;
