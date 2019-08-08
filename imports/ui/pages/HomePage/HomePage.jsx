@@ -5,18 +5,20 @@ import EventGrid from "../../components/EventGrid";
 import { Events } from "../../../api/events";
 import Button from "@material-ui/core/Button";
 import Banner from "../../components/Banner";
+import { withStyles } from "@material-ui/styles";
+import styles from "./styles";
+
 class HomePage extends Component {
   render() {
     const { currentUser, classes, events } = this.props;
     return (
-      <div>
+      <div className={classes.gradientcontainer}>
         <h1 style={{ height: 50 }}>
           Welcome to DownLow {currentUser.username}!
         </h1>
         <Banner />
-        <EventGrid 
-          events={events}
-        />
+
+        <EventGrid events={events} />
       </div>
     );
   }
@@ -30,4 +32,4 @@ export default withTracker(() => {
       .fetch()
       .filter(event => event.createdBy !== Meteor.userId())
   };
-})(HomePage);
+})(withStyles(styles)(HomePage));
