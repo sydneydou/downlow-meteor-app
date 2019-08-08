@@ -16,7 +16,6 @@ class EventCard extends Component {
       toggleButtonClick: true
     };
   }
-
   addUserReservation = entireEvent => {
     const eventId = entireEvent._id;
     Meteor.call("events.addUserReservation", eventId, Meteor.userId());
@@ -24,7 +23,6 @@ class EventCard extends Component {
       toggleButtonClick: false
     });
   };
-
   removeUserReservation = entireEvent => {
     const eventId = entireEvent._id;
     Meteor.call("events.removeUserReservation", eventId, Meteor.userId());
@@ -32,7 +30,6 @@ class EventCard extends Component {
       toggleButtonClick: true
     });
   };
-
   deleteUserEvent = eventId => {
     Meteor.call("events.deleteUserEvent", eventId);
   };
@@ -44,11 +41,8 @@ class EventCard extends Component {
         <Card className={classes.card}>
           <CardActionArea>
             <CardContent>
-              <div
-                className={classes.cardInfoContent}
-                
-              >
-                <img src={event.imageurl} className = {classes.eventImage}/>
+              <div className={classes.cardInfoContent}>
+                {/* <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" /> */}
                 <h1 className={classes.cardTitle}>{event.title}</h1>
                 <h2 className={classes.singleContent}>{event.artist}</h2>
                 <h2 className={classes.singleContent}>
@@ -92,5 +86,5 @@ class EventCard extends Component {
     );
   }
 }
-
+//subscribe to event
 export default withStyles(styles)(EventCard);

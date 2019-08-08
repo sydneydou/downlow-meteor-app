@@ -20,7 +20,6 @@ class EventGrid extends Component {
       showAllEvents: !this.state.showAllEvents
     });
   };
-
   render() {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
@@ -64,7 +63,6 @@ class EventGrid extends Component {
             )}
           </div>
         )}
-
         {showAllEvents ? (
           <div>
             <Grid item xs={12}>
@@ -76,12 +74,7 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <Grid
-              container
-              direction="row"
-              className={classes.homeContainer}
-              spacing={5}
-            >
+            <Grid item xs={12}>
               {events &&
                 events
                   .filter(event => event.reserved.includes(Meteor.userId()))
@@ -93,5 +86,4 @@ class EventGrid extends Component {
     );
   }
 }
-
 export default withRouter(withStyles(styles)(EventGrid));
