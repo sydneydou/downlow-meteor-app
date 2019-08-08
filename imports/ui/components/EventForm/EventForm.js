@@ -11,6 +11,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
+import Button from "@material-ui/core/Button";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -131,16 +132,37 @@ const EventForm = ({ currentUser, classes }) => {
                     )}
                   />
                 </div>
-              </div>
-              <button
-                type="submit"
-                onClick={handleSubmit}
-                disabled={pristine || invalid}
-                className={classes.button}
-              >
-                Submit
-              </button>
-            </div>
+              )}
+            />
+            <Field
+              name="location"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Location:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+            <Field
+              name="genre"
+              render={({ input, meta }) => (
+                <div>
+                  <label>Genre:</label>
+                  <textarea {...input} />
+                  {meta.touched && meta.error && <span>{meta.error}</span>}
+                </div>
+              )}
+            />
+
+            <Button
+              type="submit"
+              className={classes.btn}
+              onClick={handleSubmit}
+              disabled={pristine || invalid}
+            >
+              Submit
+            </Button>
           </form>
         )}
       />
@@ -174,4 +196,4 @@ const EventForm = ({ currentUser, classes }) => {
   );
 };
 
-export default withStyles(styles)(EventForm);
+export default withStyles(styles)(EventForm)
