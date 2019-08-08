@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 const Banner = ({ classes }) => {
   return (
     <div className={classes.container}>
-    <span className={classes.dL}>DL</span>
+    <span className={classes.dL}>DownLow</span>
     </div>
   );
 };

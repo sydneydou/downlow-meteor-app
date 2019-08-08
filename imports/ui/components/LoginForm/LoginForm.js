@@ -8,6 +8,12 @@ import styles from "./styles";
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
 
+// const passwordHash = require('./lib/password-hash');
+// const hashedPassword = 'sha1$3I7HRwy7$cbfdac6008f9cab4083784cbd1874f76618d2a97';
+
+// console.log(passwordHash.verify('password', hashedPassword)); // true
+// console.log(passwordHash.verify('password', hashedPassword)); // false
+
 const validate = values => {}; //TODO: Validation
 const onSubmit = values => {
   event.preventDefault();
@@ -46,7 +52,6 @@ const LoginForm = ({ classes }) => (
             </div>
           )}
         />
-
         <Field
           name="password"
           render={({ input, meta }) => (
