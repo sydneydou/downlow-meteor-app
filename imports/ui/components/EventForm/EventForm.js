@@ -15,7 +15,6 @@ import { withStyles } from "@material-ui/styles";
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
-
 const validate = values => {};
 const onSubmit = (values, currentUser) => {
   event.preventDefault();
@@ -32,17 +31,14 @@ const onSubmit = (values, currentUser) => {
 };
 const EventForm = ({ currentUser, classes }) => {
   const [open, setOpen] = React.useState(false);
-
   function handleClickOpen() {
     setOpen(true);
   }
-
   function handleClose() {
     setOpen(false);
   }
-
   return (
-    <div>
+    <div className={classes.EventPageWrapper}>
       <Form
         onSubmit={values => {
           onSubmit(values, currentUser);
@@ -51,16 +47,19 @@ const EventForm = ({ currentUser, classes }) => {
         validate={validate}
         render={({ handleSubmit, pristine, invalid }) => (
           <form>
-            <h2 className={classes.createHeader}>Create An Event</h2>
-            <div>
+            <div className={classes.EventFormContainer}>
+              <h2 className={classes.EventHeader}>Create An Event</h2>
               <div className={classes.container}>
                 <div className={classes.columnOne}>
                   <Field
                     name="title"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Event Name:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Event Name"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -71,8 +70,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="eventDescription"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Event Description:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Event Description"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -83,8 +85,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="artist"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Artist:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Artist"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -97,8 +102,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="date"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Date:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Date"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -106,11 +114,15 @@ const EventForm = ({ currentUser, classes }) => {
                     )}
                   />
                   <Field
+                    className={classes["input-field"]}
                     name="location"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Location:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Location"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -121,8 +133,11 @@ const EventForm = ({ currentUser, classes }) => {
                     name="genre"
                     render={({ input, meta }) => (
                       <div>
-                        <label>Genre:</label>
-                        <textarea {...input} />
+                        <textarea
+                          {...input}
+                          placeholder="Genre"
+                          className={classes["input-field"]}
+                        />
                         {meta.touched && meta.error && (
                           <span>{meta.error}</span>
                         )}
@@ -131,14 +146,14 @@ const EventForm = ({ currentUser, classes }) => {
                   />
                 </div>
               </div>
-              <button
+              <Button
+                className={classes.btn}
                 type="submit"
                 onClick={handleSubmit}
                 disabled={pristine || invalid}
-                className={classes.button}
               >
                 Submit
-              </button>
+              </Button>
             </div>
           </form>
         )}
@@ -172,5 +187,4 @@ const EventForm = ({ currentUser, classes }) => {
     </div>
   );
 };
-
 export default withStyles(styles)(EventForm);
