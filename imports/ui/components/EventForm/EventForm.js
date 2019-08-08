@@ -43,7 +43,7 @@ const EventForm = ({ currentUser, classes }) => {
   }
 
   return (
-    <div>
+    <div className={classes.EventPageWrapper}>
       <Form
         onSubmit={values => {
           onSubmit(values, currentUser);
@@ -52,8 +52,8 @@ const EventForm = ({ currentUser, classes }) => {
         validate={validate}
         render={({ handleSubmit, pristine, invalid }) => (
           <form>
-            <h2>Create An Event</h2>
-            <div>
+            <div className={classes.EventFormContainer}>
+              <h2 className={classes.EventHeader}>Create An Event</h2>
               <div className={classes.container}>
                 <div className={classes.columnOne}>
                   <Field
@@ -156,7 +156,6 @@ const EventForm = ({ currentUser, classes }) => {
                 type="submit"
                 onClick={handleSubmit}
                 disabled={pristine || invalid}
-                className={classes.button}
               >
                 Submit
               </Button>
