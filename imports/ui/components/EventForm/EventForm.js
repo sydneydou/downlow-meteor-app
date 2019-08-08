@@ -24,6 +24,7 @@ const onSubmit = (values, currentUser) => {
     date: values.date,
     genre: values.genre,
     location: values.location,
+    imageurl: values.image,
     reserved: [],
     createdBy: Meteor.userId()
   };
@@ -136,6 +137,21 @@ const EventForm = ({ currentUser, classes }) => {
                         <textarea
                           {...input}
                           placeholder="Genre"
+                          className={classes["input-field"]}
+                        />
+                        {meta.touched && meta.error && (
+                          <span>{meta.error}</span>
+                        )}
+                      </div>
+                    )}
+                  />
+                  <Field
+                    name="image"
+                    render={({ input, meta }) => (
+                      <div>
+                        <textarea
+                          {...input}
+                          placeholder="Image URL"
                           className={classes["input-field"]}
                         />
                         {meta.touched && meta.error && (

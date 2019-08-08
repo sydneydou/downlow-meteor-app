@@ -40,11 +40,11 @@ class EventGrid extends Component {
           <div>
             <h2 className={classes.color}>View All Events</h2>
             <Grid
-              container
-              direction="row"
-              justify="space-between"
-              className={classes.homeContainer}
-              spacing={5}
+              item
+              xs={12}
+              //direction="row"
+              //className={classes.homeContainer}
+              //spacing={12}
             >
               {events &&
                 events.map(event => (
