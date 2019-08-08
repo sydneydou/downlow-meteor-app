@@ -25,14 +25,17 @@ class EventCard extends Component {
       <div className={classes.container}>
         <Card className={classes.card}>
           <CardActionArea>
-            <CardContent className={classes.cardInfoContent}>
-              <div>
-                <h1>{event.title}</h1>
-                <h2>{event.artist}</h2>
-                <h2>{event.eventDescription}</h2>
-                <h2>{event.date}</h2>
-                <h3>{event.genre}</h3>
-                <h3>
+            <CardContent>
+              <div className={classes.cardInfoContent}>
+                {/* <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" /> */}
+                <h1 className={classes.cardTitle}>{event.title}</h1>
+                <h2 className={classes.singleContent}>{event.artist}</h2>
+                <h2 className={classes.singleContent}>
+                  {event.eventDescription}
+                </h2>
+                <h2 className={classes.singleContent}>{event.date}</h2>
+                <h3 className={classes.singleContent}>{event.genre}</h3>
+                <h3 className={classes.singleContent}>
                   There will be {event.reserved.length} users attending this
                   event!
                 </h3>
@@ -44,6 +47,7 @@ class EventCard extends Component {
                 {Meteor.userId() !== event.createdBy ? (
                   <Button
                     variant="contained"
+                    className={classes.btn}
                     onClick={() => this.addUserReservation(event)}
                   >
                     Count Me In!
