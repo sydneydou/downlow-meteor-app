@@ -3,13 +3,15 @@ const styles = theme => ({
     display: "flex",
     flexWrap: "wrap",
     width: "100%",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    borderBottom: "2px solid #19B4A4"
   },
   ButtonWrapperToggled: {
     display: "flex",
     flexWrap: "wrap",
     width: "100%",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    borderBottom: "2px solid #19B4A4"
   },
   AllEventsButton: {
     width: "30%",
@@ -71,10 +73,10 @@ const styles = theme => ({
     paddingBottom: "4em",
     fontWeight: "500",
     fontSize: "1.6em"
-  },
-  EventGridContainer: {
-    border: "2px solid #19B4A4"
   }
+  // EventGridContainer: {
+  //   borderTop: "2px solid #19B4A4"
+  // }
 });
 
 export default styles;
