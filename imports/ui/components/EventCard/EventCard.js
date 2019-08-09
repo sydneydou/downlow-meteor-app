@@ -31,49 +31,64 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
+    console.log(event);
     return (
       event && (
         <div className={classes.container}>
           <Card className={classes.card}>
             <CardActionArea>
               <CardContent>
-                <div className={classes.cardInfoContent}>
-                  <h1 className={classes.cardTitle}>{event.title}</h1>
-                  <h2 className={classes.singleContent}>{event.artist}</h2>
-                  <h2 className={classes.singleContent}>
-                    {event.eventDescription}
-                  </h2>
-                  <h2 className={classes.singleContent}>{event.date}</h2>
-                  <h3 className={classes.singleContent}>{event.genre}</h3>
-                  <h3 className={classes.singleContent}>
-                    There will be {event.reserved.length} users attending this
-                    event!
-                  </h3>
-                  {Meteor.userId() === event.createdBy ? (
-                    <DeleteOutlinedIcon
-                      onClick={() => this.deleteUserEvent(event._id)}
-                    />
-                  ) : null}
-                  {Meteor.userId() !== event.createdBy ? (
-                    // toggleButtonClick ? (
-                    <Button
-                      variant="contained"
-                      className={
-                        this.checkForUserReservation(event)
-                          ? classes.btnClicked
-                          : classes.btn
-                      }
-                      onClick={() =>
-                        this.checkForUserReservation(event)
-                          ? this.removeUserReservation(event)
-                          : this.addUserReservation(event)
-                      }
-                    >
-                      {this.checkForUserReservation(event)
-                        ? "Count Me Out!"
-                        : "Count Me In!"}
-                    </Button>
-                  ) : null}
+                <div className={classes.imageCentering}>
+                  <div className={classes.cardInfoContent}>
+                    <span className={classes.titleTimeBlock}>
+                      <h1 className={classes.cardTitle}>{event.title}</h1>
+                      <h2 className={classes.cardDate}>{event.date}</h2>
+                    </span>
+                    <span className={classes.infoBlock}>
+                      <h2 className={classes.cardArtist}>{event.artist}</h2>
+                      <h3 className={classes.cardArtist}>{event.genre}</h3>
+                    </span>
+                    <h2 className={classes.singleContent}>
+                      {event.eventDescription}
+                    </h2>
+                    <span>
+                      <h3 className={classes.cardAttending}>
+                        There will be{" "}
+                        <span className={classes.numAttending}>
+                          {event.reserved.length}
+                        </span>{" "}
+                        users attending this event!
+                      </h3>
+                    </span>
+                    {Meteor.userId() === event.createdBy ? (
+                      <DeleteOutlinedIcon
+                        className={classes.deleteIcon}
+                        onClick={() => this.deleteUserEvent(event._id)}
+                      />
+                    ) : null}
+                    {Meteor.userId() !== event.createdBy ? (
+                      <Button
+                        variant="contained"
+                        className={
+                          this.checkForUserReservation(event)
+                            ? classes.btnClicked
+                            : classes.btn
+                        }
+                        onClick={() =>
+                          this.checkForUserReservation(event)
+                            ? this.removeUserReservation(event)
+                            : this.addUserReservation(event)
+                        }
+                      >
+                        {this.checkForUserReservation(event)
+                          ? "Count Me Out!"
+                          : "Count Me In!"}
+                      </Button>
+                    ) : null}
+                  </div>
+                  <div className = {classes.cardDiv}>
+                  <img src={event.imageurl} className={classes.cardImage} />
+                  </div>
                 </div>
               </CardContent>
             </CardActionArea>

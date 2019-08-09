@@ -34,6 +34,7 @@ Meteor.startup(() => {
       date: "Aug.9th, 9:00p.m",
       genre: "Dub Step",
       location: "9999 Granville St",
+      imageurl: "https://source.unsplash.com/random",
       reserved: [],
       createdBy: []
     };
