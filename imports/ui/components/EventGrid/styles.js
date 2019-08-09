@@ -16,10 +16,11 @@ const styles = theme => ({
   AllEventsButton: {
     width: "30%",
     color: "white",
+    border: "2px solid #19B4A4",
     backgroundColor: "#19B4A4",
     "&:hover": {
       backgroundColor: "rgba(0,0,0,0)",
-      // border: "2px solid #19B4A4",
+      border: "2px solid #19B4A4",
       grow: "0"
     }
   },
@@ -41,11 +42,12 @@ const styles = theme => ({
     width: "30%",
     order: "2",
     color: "white",
+    border: "2px solid #19B4A4",
     backgroundColor: "#19B4A4",
 
     "&:hover": {
       backgroundColor: "rgba(0,0,0,0)",
-      // border: "2px solid #19B4A4",
+      border: "2px solid #19B4A4",
       grow: "0"
     }
   },
@@ -74,9 +76,6 @@ const styles = theme => ({
     fontWeight: "500",
     fontSize: "1.6em"
   }
-  // EventGridContainer: {
-  //   borderTop: "2px solid #19B4A4"
-  // }
 });
 
 export default styles;

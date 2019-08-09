@@ -13,13 +13,14 @@ const styles = theme => ({
     color: "#fff",
     fontSize: "45px",
     fontWeight: "700",
-    paddingBottom: "1rem"
+    marginBottom: "1rem"
   },
   bannerText: {
     height: "50",
     margin: "0",
     color: "#fff",
-    fontWeight: "300"
+    fontWeight: "300",
+    fontSize: "29px"
   },
   bannerTextPosition: {
     display: "flex",
@@ -27,7 +28,7 @@ const styles = theme => ({
     alignItems: "center",
     textAlign: "center",
     flexDirection: "column"
-  }
+  } 
 });
 
 export default styles;

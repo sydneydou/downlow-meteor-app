@@ -21,9 +21,7 @@ const onSubmit = (values, handleError) => {
       handleError(null);
     } else {
       console.log("ERROR: " + error);
-      // 3. use handleError to catch the error and same as above
       handleError(error);
-      // return this error message onto screen
     }
   });
 };
@@ -31,13 +29,11 @@ const onSubmit = (values, handleError) => {
 class LoginForm extends Component {
   constructor() {
     super();
-    // 1. start the default state
     this.state = {
       error: null
     };
   }
 
-  // 2. create a function that will turn null into a new given state from user
   handleError = error => {
     this.setState({ error });
   };
@@ -48,7 +44,6 @@ class LoginForm extends Component {
       <React.Fragment>
         <Form
           className={classes.Form}
-          // 4. pass the function down as props
           onSubmit={values => onSubmit(values, this.handleError)}
           validate={() => validate()}
           render={({ handleSubmit, pristine, invalid }) => (
@@ -66,7 +61,6 @@ class LoginForm extends Component {
                       }
                       {...input}
                       placeholder="Email"
-                      // className={classes["input-field"]}
                     />
                     {meta.touched && meta.error && <span>{meta.error}</span>}
                   </div>
@@ -85,7 +79,6 @@ class LoginForm extends Component {
                       {...input}
                       type="password"
                       placeholder="Password"
-                      // className={classes["input-field"]}
                     />
                     {meta.touched && meta.error && <span>{meta.error}</span>}
                   </div>
@@ -103,8 +96,9 @@ class LoginForm extends Component {
             </form>
           )}
         />
-        {/* 5. Show the errors on the browser  */}
-        <p>{this.state.error && this.state.error.reason}</p>
+        <p className={classes.errorMessage}>
+          {this.state.error && this.state.error.reason}! 
+        </p>
       </React.Fragment>
     );
   }
