@@ -79,15 +79,7 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <Grid
-              item
-              xs={12}
-              className={
-                this.props.location.pathname === "/home"
-                  ? classes.EventGridContainer
-                  : null
-              }
-            >
+            <Grid item xs={12} className={classes.EventGridContainer}>
               {this.filterEvents(events).length ? (
                 this.filterEvents(events).map(event => (
                   <EventCard key={event._id} event={event} />
