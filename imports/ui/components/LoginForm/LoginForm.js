@@ -3,12 +3,11 @@ import { Form, Field } from "react-final-form";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
-import { NavigationFullscreen } from "material-ui/svg-icons";
+// import { NavigationFullscreen } from "material-ui/svg-icons";
 
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
 
-// const bcrypt = require('bcryptjs');
 
 const validate = values => {}; //TODO: Validation
 // when a function is being passed into a another function, just simply call it as an argument 
