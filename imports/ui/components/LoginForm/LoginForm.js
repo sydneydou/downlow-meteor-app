@@ -8,9 +8,8 @@ import styles from "./styles";
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
 
-
 const validate = values => {}; //TODO: Validation
-// when a function is being passed into a another function, just simply call it as an argument 
+// when a function is being passed into a another function, just simply call it as an argument
 const onSubmit = (values, handleError) => {
   event.preventDefault();
   var myEmail = values.email;
@@ -60,9 +59,14 @@ class LoginForm extends Component {
                 render={({ input, meta }) => (
                   <div>
                     <textarea
+                      className={
+                        this.state.error && this.state.error.reason
+                          ? classes.showErrorColor
+                          : classes["input-field"]
+                      }
                       {...input}
                       placeholder="Email"
-                      className={classes["input-field"]}
+                      // className={classes["input-field"]}
                     />
                     {meta.touched && meta.error && <span>{meta.error}</span>}
                   </div>
@@ -73,10 +77,15 @@ class LoginForm extends Component {
                 render={({ input, meta }) => (
                   <div>
                     <input
+                      className={
+                        this.state.error && this.state.error.reason
+                          ? classes.showErrorColor
+                          : classes["input-field"]
+                      }
                       {...input}
                       type="password"
                       placeholder="Password"
-                      className={classes["input-field"]}
+                      // className={classes["input-field"]}
                     />
                     {meta.touched && meta.error && <span>{meta.error}</span>}
                   </div>

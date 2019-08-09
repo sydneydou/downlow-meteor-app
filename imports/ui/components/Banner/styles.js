@@ -12,13 +12,14 @@ const styles = theme => ({
   dL: {
     color: "#fff",
     fontSize: "45px",
-    fontWeight: "700"
+    fontWeight: "700",
+    paddingBottom: "1rem"
   },
   bannerText: {
     height: "50",
     margin: "0",
     color: "#fff",
-    fontWeight: "300",
+    fontWeight: "300"
   },
   bannerTextPosition: {
     display: "flex",
