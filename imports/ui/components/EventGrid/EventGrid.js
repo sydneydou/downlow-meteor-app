@@ -20,6 +20,11 @@ class EventGrid extends Component {
       showAllEvents: !this.state.showAllEvents
     });
   };
+
+  filterEvents = events => {
+    return events.filter(event => event.reserved.includes(Meteor.userId()));
+  };
+
   render() {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
@@ -74,11 +79,16 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <Grid item xs={12}>
-              {events &&
-                events
-                  .filter(event => event.reserved.includes(Meteor.userId()))
-                  .map(event => <EventCard key={event._id} event={event} />)}
+            <Grid>
+              {this.filterEvents(events).length ? (
+                this.filterEvents(events).map(event => (
+                  <EventCard key={event._id} event={event} />
+                ))
+              ) : (
+                <h3 className={classes.noAttendedEventsText}>
+                  You have no events you want to attend yet!
+                </h3>
+              )}
             </Grid>
           </div>
         )}
@@ -86,4 +96,5 @@ class EventGrid extends Component {
     );
   }
 }
+
 export default withRouter(withStyles(styles)(EventGrid));
