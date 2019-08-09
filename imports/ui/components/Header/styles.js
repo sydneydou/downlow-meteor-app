@@ -4,38 +4,47 @@ const styles = theme => ({
     justifyContent: "space-between",
     background: "black",
     height: "4.2em",
-    paddingLeft: "4em",
-    paddingRight: "4em"
+    textAlign: "center",
+    paddingLeft: "10%",
+    paddingRight: "10%"
   },
   "long-menu-item": {
     color: "black",
-    fontSize: "1.2em",
-    paddingLeft: ".5em"
+    fontSize: "1.2em"
   },
   NotificationsContainer: {
     display: "flex",
     alignItems: "center"
   },
-  VertIcon: {
-    marginRight: "10px"
-  },
   headerText: {
     color: "white",
     fontSize: "1.5em",
     fontWeight: "500",
-    marginTop: ".8em"
+    width: "100%",
+    margin: "0"
+  },
+  addIcon: {
+    color: "white",
+    marginRight: "5px"
   },
   link: {
-    textDecoration: "none"
+    textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+    zIndex: "2",
+    width: "160px"
   },
   dropDown: {
     height: "1.2em",
     fontSize: "1.5em",
     color: "white"
   },
-  iconContainer: {
-    paddingTop: ".2em",
-    paddingRight: ".25em"
+  innerIcons: {
+    verticalAlign: "middle",
+    marginRight: "10px"
+  },
+  LongIconContainer: {
+    width: "160px"
   }
 });
 
