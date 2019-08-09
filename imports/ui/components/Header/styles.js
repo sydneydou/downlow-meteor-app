@@ -2,7 +2,7 @@ const styles = theme => ({
   container: {
     display: "flex",
     justifyContent: "space-between",
-    background: "lightsteelblue",
+    background: "black",
     height: "4.2em",
     paddingLeft: "4em",
     paddingRight: "4em"
@@ -20,7 +20,7 @@ const styles = theme => ({
     marginRight: "10px"
   },
   headerText: {
-    color: "black",
+    color: "white",
     fontSize: "1.5em",
     fontWeight: "500",
     marginTop: ".8em"
@@ -30,7 +30,8 @@ const styles = theme => ({
   },
   dropDown: {
     height: "1.2em",
-    fontSize: "1.5em"
+    fontSize: "1.5em",
+    color: "white"
   },
   iconContainer: {
     paddingTop: ".2em",
