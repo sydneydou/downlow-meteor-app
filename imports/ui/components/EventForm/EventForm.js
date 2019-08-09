@@ -24,6 +24,7 @@ const onSubmit = (values, currentUser) => {
     date: values.date,
     genre: values.genre,
     location: values.location,
+    imageurl: values.image,
     reserved: [],
     createdBy: Meteor.userId()
   };
@@ -144,6 +145,21 @@ const EventForm = ({ currentUser, classes }) => {
                       </div>
                     )}
                   />
+                  <Field
+                    name="image"
+                    render={({ input, meta }) => (
+                      <div>
+                        <textarea
+                          {...input}
+                          placeholder="Image URL"
+                          className={classes["input-field"]}
+                        />
+                        {meta.touched && meta.error && (
+                          <span>{meta.error}</span>
+                        )}
+                      </div>
+                    )}
+                  />
                 </div>
               </div>
               <Button
@@ -163,23 +179,30 @@ const EventForm = ({ currentUser, classes }) => {
           open={open}
           TransitionComponent={Transition}
           keepMounted
+          className={classes.EventPopupContainer}
           onClose={handleClose}
           aria-labelledby="alert-dialog-slide-title"
           aria-describedby="alert-dialog-slide-description"
         >
-          <DialogTitle>Congrats!</DialogTitle>
+          <DialogTitle className={classes.EventPopupTitle}>
+            Congrats!
+          </DialogTitle>
           <DialogContent>
-            <DialogContentText>
+            <DialogContentText className={classes.EventPopupContent}>
               You just successfully created an event! This event will now be
               visible for all users to attend.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Link to="/profile">
-              <Button onClick={handleClose}>Show me my new event!</Button>
+            <Link to="/profile" className={classes.EventPopupLink}>
+              <Button onClick={handleClose} className={classes.EventPopupBtns}>
+                Show me my new event!
+              </Button>
             </Link>
-            <Link to="/home">
-              <Button onClick={handleClose}>Show me other events!</Button>
+            <Link to="/home" className={classes.EventPopupLink}>
+              <Button onClick={handleClose} className={classes.EventPopupBtns}>
+                Show me other events!
+              </Button>
             </Link>
           </DialogActions>
         </Dialog>

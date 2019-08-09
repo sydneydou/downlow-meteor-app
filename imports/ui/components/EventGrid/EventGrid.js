@@ -6,6 +6,7 @@ import EventCard from "../EventCard";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
 import { withRouter } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 //show all event only for homepage
 class EventGrid extends Component {
   constructor(props) {
@@ -19,32 +20,52 @@ class EventGrid extends Component {
       showAllEvents: !this.state.showAllEvents
     });
   };
-
   render() {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
     return (
       <div style={{ marginTop: -16 }}>
         {this.props.location.pathname === "/home" && (
-          <Button
-            variant="contained"
-            onClick={() => {
-              this.showAllEvents();
-            }}
-          >
-            {showAllEvents ? "View Events I'm Attending" : "View All Events"}
-          </Button>
+          <div>
+            {showAllEvents ? (
+              <div className={classes.ButtonWrapper}>
+                <Button
+                  className={classes.AttendingEventsButton}
+                  variant="contained"
+                  onClick={() => {
+                    this.showAllEvents();
+                  }}
+                >
+                  Events I'm Attending
+                </Button>
+                <Typography className={classes.AllEventsTitle} component="h2">
+                  All Events
+                </Typography>
+              </div>
+            ) : (
+              <div className={classes.ButtonWrapperToggled}>
+                <Button
+                  className={classes.AllEventsButton}
+                  variant="contained"
+                  onClick={() => {
+                    this.showAllEvents();
+                  }}
+                >
+                  All Events
+                </Button>
+                <Typography
+                  className={classes.AttendingEventsTitle}
+                  component="h2"
+                >
+                  Events I'm Attending
+                </Typography>
+              </div>
+            )}
+          </div>
         )}
-
         {showAllEvents ? (
           <div>
-            <h2 className={classes.color}>View All Events</h2>
-            <Grid
-              container
-              direction="row"
-              className={classes.homeContainer}
-              spacing={5}
-            >
+            <Grid item xs={12}>
               {events &&
                 events.map(event => (
                   <EventCard key={event._id} event={event} />
@@ -53,14 +74,7 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <h2 className={classes.color}>View Events I'm Attending</h2>
-
-            <Grid
-              container
-              direction="row"
-              className={classes.homeContainer}
-              spacing={5}
-            >
+            <Grid item xs={12}>
               {events &&
                 events
                   .filter(event => event.reserved.includes(Meteor.userId()))
@@ -72,5 +86,4 @@ class EventGrid extends Component {
     );
   }
 }
-
 export default withRouter(withStyles(styles)(EventGrid));

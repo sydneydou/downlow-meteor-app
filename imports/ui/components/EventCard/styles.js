@@ -1,7 +1,6 @@
 const styles = theme => ({
   card: {
-    width: "430px",
-    height: "330px",
+    height: "290px",
     margin: "20px 25px",
     background: "rgba(0,0,0,0.2)",
     color: "#fff",
@@ -9,9 +8,7 @@ const styles = theme => ({
     border: "2px solid #fff",
     borderRadius: "10px"
   },
-  // cardImage: {
-  //   objectFit: "contain"
-  // },
+
   cardTitle: {
     fontSize: "22px",
     marginTop: "0",
@@ -23,7 +20,7 @@ const styles = theme => ({
     fontSize: "14px"
   },
   cardInfoContent: {
-    marginTop: "9.2rem",
+    //marginTop: "20%",
     fontWeight: "light",
     fontSize: "8px",
     paddingBottom: "0"
@@ -42,6 +39,9 @@ const styles = theme => ({
     marginBottom: "20px",
     marginTop: "12px",
     border: "2px solid #19B4A4"
+  },
+  eventImage: {
+    height: "8em"
   }
 });
 
