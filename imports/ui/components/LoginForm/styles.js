@@ -36,6 +36,9 @@ const styles = theme => ({
   },
   Form: {
     width: "300px"
+  },
+  Password: {
+    
   }
 });
 
