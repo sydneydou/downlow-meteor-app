@@ -1,4 +1,8 @@
 const styles = theme => ({
+  dlLogo: {
+    textShadow: "4px 3px black",
+    marginBottom: "5rem"
+  },
   loginWrapper: {
     textAlign: "center",
     color: "white",
