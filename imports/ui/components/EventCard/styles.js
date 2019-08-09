@@ -77,13 +77,10 @@ const styles = theme => ({
     fontWeight: "800"
   },
   cardImage: {
-    // height: "30.5em",
-    // width: "50%",
     marginTop: "-16px",
     marginRight: "-16px",
-    // paddingLeft: "9em",
-    resizeMode: "contain",
-    width: "100%"
+    width: "100%",
+    height: "35em"
   },
   imageCentering: {
     display: "flex",
