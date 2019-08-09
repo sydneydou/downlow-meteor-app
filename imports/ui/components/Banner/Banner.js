@@ -21,9 +21,6 @@ const Banner = ({ currentUser, classes }) => {
 export default withTracker(() => {
   Meteor.subscribe("events");
   return {
-    currentUser: Meteor.user(),
-    // events: Events.find()
-    //   .fetch()
-    //   .filter(event => event.createdBy !== Meteor.userId())
+    currentUser: Meteor.user()
   };
 })(withStyles(styles)(Banner));

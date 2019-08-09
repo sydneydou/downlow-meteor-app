@@ -28,7 +28,7 @@ const styles = theme => ({
     alignItems: "center",
     textAlign: "center",
     flexDirection: "column"
-  }
+  } 
 });
 
 export default styles;
