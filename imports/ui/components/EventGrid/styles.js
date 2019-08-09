@@ -49,6 +49,14 @@ const styles = theme => ({
   },
   color: {
     color: "white"
+  },
+  noAttendedEventsText: {
+    color: "white",
+    textAlign: "center",
+    paddingTop: "4em",
+    paddingBottom: "4em",
+    fontWeight: "500",
+    fontSize: "1.6em"
   }
 });
 
