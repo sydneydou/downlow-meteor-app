@@ -3,6 +3,7 @@ import { Form, Field } from "react-final-form";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
+import { NavigationFullscreen } from "material-ui/svg-icons";
 
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
@@ -10,11 +11,11 @@ import styles from "./styles";
 // const bcrypt = require('bcryptjs');
 
 const validate = values => {}; //TODO: Validation
+// when a function is being passed into a another function, just simply call it as an argument 
 const onSubmit = (values, handleError) => {
   event.preventDefault();
   var myEmail = values.email;
   var myPassword = values.password;
-  // const hashedPassword = await bcrypt.hash(myPassword, 10);
 
   Meteor.loginWithPassword(myEmail, myPassword, function(error) {
     if (Meteor.user()) {
@@ -22,9 +23,9 @@ const onSubmit = (values, handleError) => {
       handleError(null);
     } else {
       console.log("ERROR: " + error);
+      // 3. use handleError to catch the error and same as above
       handleError(error);
-      // error.reason ? alert("<div>Sorry! Your User/Password is incorrect! <br/> Please try again! </div>" ) : null
-      //return this error message onto screen
+      // return this error message onto screen
     }
   });
 };
@@ -32,11 +33,13 @@ const onSubmit = (values, handleError) => {
 class LoginForm extends Component {
   constructor() {
     super();
+    // 1. start the default state
     this.state = {
       error: null
     };
   }
 
+  // 2. create a function that will turn null into a new given state from user
   handleError = error => {
     this.setState({ error });
   };
@@ -47,6 +50,7 @@ class LoginForm extends Component {
       <React.Fragment>
         <Form
           className={classes.Form}
+          // 4. pass the function down as props
           onSubmit={values => onSubmit(values, this.handleError)}
           validate={() => validate()}
           render={({ handleSubmit, pristine, invalid }) => (
@@ -79,7 +83,6 @@ class LoginForm extends Component {
                   </div>
                 )}
               />
-
               <Button
                 className={classes.btn}
                 variant="contained"
@@ -92,6 +95,7 @@ class LoginForm extends Component {
             </form>
           )}
         />
+        {/* 5. Show the errors on the browser  */}
         <p>{this.state.error && this.state.error.reason}</p>
       </React.Fragment>
     );
