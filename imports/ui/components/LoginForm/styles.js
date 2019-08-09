@@ -1,4 +1,9 @@
 const styles = theme => ({
+  errorMessage: {
+    fontSize: "22px",
+    fontWeight: "700",
+    textShadow: "2.6px 2px red"
+  },
   btn: {
     color: "white",
     backgroundColor: "#19B4A4",
@@ -56,6 +61,7 @@ const styles = theme => ({
       alignSelf: "center",
       marginTop: "4px"
   }
+ 
 }
 });
 
