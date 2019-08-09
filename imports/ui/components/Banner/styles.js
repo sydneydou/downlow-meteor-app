@@ -3,7 +3,8 @@ const styles = theme => ({
     // backgroundImage: `url("assets/concertbg.jpg")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    background: "linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url('assets/concertbg.jpg')",
+    background:
+      "linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)), url('assets/concertbg.jpg')",
     height: "92vh",
     marginTop: "-80px"
   },
@@ -13,7 +14,6 @@ const styles = theme => ({
     display: "flex",
     justifyContent: "center",
     paddingTop: "13rem",
-    marginTop: ".5em",
     fontWeight: "700"
   }
 });
