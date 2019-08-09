@@ -7,12 +7,12 @@ const Banner = ({ currentUser, classes }) => {
   return (
     <div className={classes.container}>
       <div className={classes.bannerTextPosition}>
-        <span className={classes.dL}>DownLow</span>
-        <h1 className={classes.bannerText}>
+        <h1 className={classes.dL}>DownLow</h1>
+        <p className={classes.bannerText}>
           Hey {currentUser.username}, Welcome to DownLow! <br /> Where you can
           create and attend the closest underground <br /> events at your own
           convenience!
-        </h1>
+        </p>
       </div>
     </div>
   );
