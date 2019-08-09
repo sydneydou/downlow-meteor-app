@@ -24,7 +24,7 @@ class EventGrid extends Component {
     const { showAllEvents } = this.state;
     const { classes, events } = this.props;
     return (
-      <div style={{ marginTop: -16 }}>
+      <div>
         {this.props.location.pathname === "/home" && (
           <div>
             {showAllEvents ? (
@@ -65,7 +65,7 @@ class EventGrid extends Component {
         )}
         {showAllEvents ? (
           <div>
-            <Grid item xs={12}>
+            <Grid item xs={12} className={classes.EventGridContainer}>
               {events &&
                 events.map(event => (
                   <EventCard key={event._id} event={event} />
@@ -74,7 +74,7 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <Grid item xs={12}>
+            <Grid item xs={12} className={classes.EventGridContainer}>
               {events &&
                 events
                   .filter(event => event.reserved.includes(Meteor.userId()))
