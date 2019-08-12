@@ -15,7 +15,7 @@ const styles = theme => ({
   },
   singleContent: {
     margin: "0",
-    padding: "1px 0",
+    paddingTop: ".4em",
     fontSize: "22px"
   },
   cardInfoContent: {
