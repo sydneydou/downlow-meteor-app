@@ -34,7 +34,9 @@ Meteor.startup(() => {
       date: "Aug.9th, 9:00p.m",
       genre: "Dub Step",
       location: "9999 Granville St",
-      imageurl: "https://source.unsplash.com/random",
+      description: "Wildin out in the forest",
+      imageurl:
+        "https://shambhalamusicfestival.com/wp-content/uploads/2018/04/og_image.jpg",
       reserved: [],
       createdBy: []
     };

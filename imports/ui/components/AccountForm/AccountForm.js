@@ -14,6 +14,7 @@ const onSubmit = values => {
     email: values.email,
     password: values.password
   };
+
   Accounts.createUser(registerData, function(error) {
     return registerData;
   });
@@ -59,8 +60,9 @@ const AccountForm = ({ classes }) => (
           name="password"
           render={({ input, meta }) => (
             <div>
-              <textarea
+              <input
                 {...input}
+                type="password"
                 placeholder="Password"
                 className={classes["input-field"]}
               />
@@ -84,7 +86,7 @@ const AccountForm = ({ classes }) => (
 );
 
 AccountForm.propTypes = {
-  classes: PropTypes.string.isRequired
-};
+  classes: PropTypes.object.isRequired
+}
 
 export default withStyles(styles)(AccountForm);

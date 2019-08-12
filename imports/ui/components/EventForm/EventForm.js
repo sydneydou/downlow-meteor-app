@@ -13,7 +13,6 @@ import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
 // import PropTypes from 'prop-types';
 
-
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -24,6 +23,7 @@ const onSubmit = (values, currentUser) => {
     title: values.title,
     artist: values.artist,
     date: values.date,
+    description: values.description,
     genre: values.genre,
     location: values.location,
     imageurl: values.image,

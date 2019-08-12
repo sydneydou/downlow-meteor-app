@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 const ProfileCard = ({ currentUser, classes }) => {
   return (
     <div className={classes.profileCard}>
-      <Card>
+      <Card className={classes.background}>
         <CardActionArea>
           <CardContent>
             <Gravatar email={currentUser.emails[0].address} />
@@ -27,8 +27,10 @@ const ProfileCard = ({ currentUser, classes }) => {
 ProfileCard.propTypes = {
   currentUser: PropTypes.shape({
     username: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired
+    emails: PropTypes.array.isRequired,
+    _id: PropTypes.string.isRequired
   }),
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.object.isRequired
 }
+
 export default withStyles(styles)(ProfileCard);
