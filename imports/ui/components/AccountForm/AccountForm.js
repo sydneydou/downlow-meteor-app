@@ -24,14 +24,12 @@ import PropTypes from 'prop-types';
 
 const validate = values => {};
 const onSubmit = values => {
-  console.log(values.password);
   event.preventDefault();
   const registerData = {
     username: values.username,
     email: values.email,
     password: values.password
   };
-  console.log(registerData);
 
   Accounts.createUser(registerData, function(error) {
     if (Meteor.user()) {
@@ -108,7 +106,7 @@ const AccountForm = ({ classes }) => (
 );
 
 AccountForm.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(AccountForm);

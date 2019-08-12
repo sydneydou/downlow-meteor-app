@@ -109,8 +109,8 @@ class EventCard extends Component {
 }
 
 EventCard.propTypes = {
-  classes: PropTypes.string.isRequired,
-  events: PropTypes.array.isRequired
+  classes: PropTypes.object.isRequired,
+  event: PropTypes.object.isRequired
 }
 
 //subscribe to event

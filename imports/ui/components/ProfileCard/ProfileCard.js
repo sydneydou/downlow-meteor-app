@@ -27,9 +27,9 @@ const ProfileCard = ({ currentUser, classes }) => {
 ProfileCard.propTypes = {
   currentUser: PropTypes.shape({
     username: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired
+    emails: PropTypes.array.isRequired
   }),
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(ProfileCard);
