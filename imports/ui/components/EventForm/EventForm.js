@@ -70,7 +70,7 @@ const EventForm = ({ currentUser, classes }) => {
                     )}
                   />
                   <Field
-                    name="eventDescription"
+                    name="description"
                     render={({ input, meta }) => (
                       <div>
                         <textarea
