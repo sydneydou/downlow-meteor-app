@@ -12,10 +12,11 @@ const styles = theme => ({
     color: "white",
     textAlign: "center",
     height: "100%",
-    fontSize: "2rem"
+    fontSize: "2rem",
+    marginBottom: "0"
   },
   HeaderContainer: {
-    height: "50vh"
+    height: "55vh"
   }
 });
 
