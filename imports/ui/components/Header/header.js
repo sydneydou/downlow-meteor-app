@@ -22,10 +22,12 @@ class Header extends Component {
         <Link to="/home" className={classes.link}>
           <p className={classes.headerText}>DownLow</p>
         </Link>
+
         <Link to="/create" className={classes.link}>
           <AddCircleOutline className={classes.addIcon} />
           <p className={classes.headerText}>Add Event</p>
         </Link>
+
         <div className={classes.LongIconContainer}>
           <LongMenu classes={classes} />
         </div>
