@@ -60,6 +60,9 @@ const styles = theme => ({
   },
   LongIconContainer: {
     width: "160px"
+  },
+  DlLogo: {
+    width: "45%"
   }
 });
 

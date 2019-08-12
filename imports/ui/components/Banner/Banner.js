@@ -8,7 +8,8 @@ const Banner = ({ currentUser, classes }) => {
   return (
     <div className={classes.container}>
       <div className={classes.BannerTextPosition}>
-        <h1 className={classes.dL}>DownLow</h1>
+        {/* <h1 className={classes.dL}>DownLow</h1> */}
+        <img src="assets/dl-logo-header.svg" className={classes.DlLogo} />
         <p className={classes.BannerText}>
           Hey {currentUser.username}, welcome to DownLow! <br /> Where you can
           create and attend the closest underground <br /> events at your own

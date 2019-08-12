@@ -28,6 +28,10 @@ const styles = theme => ({
     alignItems: "center",
     textAlign: "center",
     flexDirection: "column"
+  },
+  DlLogo: {
+    width: "50%",
+    margin: "50px"
   }
 });
 

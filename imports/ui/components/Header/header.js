@@ -19,7 +19,8 @@ class Header extends Component {
     return (
       <div className={classes.container}>
         <Link to="/home" className={classes.Link}>
-          <p className={classes.HeaderText}>DownLow</p>
+          {/* <p className={classes.HeaderText}>DownLow</p> */}
+          <img src="assets/dl-logo.svg" className={classes.DlLogo} />
         </Link>
 
         <Link to="/create" className={classes.Link}>
@@ -74,7 +75,7 @@ function LongMenu({ classes }) {
         anchorEl={anchorEl}
         keepMounted
         open={open}
-        onClose={handleClose}
+        onBlur={handleClose}
         PaperProps={{
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,
