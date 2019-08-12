@@ -4,6 +4,7 @@ import LoginForm from "../../components/LoginForm";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
 import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
 
 class LoginPage extends Component {
   constructor(props) {
@@ -40,6 +41,10 @@ class LoginPage extends Component {
       </div>
     );
   }
+}
+
+LoginPage.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(LoginPage);

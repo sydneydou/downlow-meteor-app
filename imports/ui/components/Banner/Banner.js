@@ -10,7 +10,7 @@ const Banner = ({ currentUser, classes }) => {
       <div className={classes.BannerTextPosition}>
         <h1 className={classes.dL}>DownLow</h1>
         <p className={classes.BannerText}>
-          Hey {currentUser.username}, Welcome to DownLow! <br /> Where you can
+          Hey {currentUser.username}, welcome to DownLow! <br /> Where you can
           create and attend the closest underground <br /> events at your own
           convenience!
         </p>

@@ -55,7 +55,6 @@ const AccountForm = ({ classes }) => (
             </div>
           )}
         />
-
         <Field
           name="password"
           render={({ input, meta }) => (
@@ -70,7 +69,7 @@ const AccountForm = ({ classes }) => (
             </div>
           )}
         />
-
+        
         <Button
           className={classes.btn}
           variant="contained"
