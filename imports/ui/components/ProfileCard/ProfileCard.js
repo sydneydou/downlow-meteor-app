@@ -8,7 +8,6 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import Gravatar from "react-gravatar";
 import PropTypes from 'prop-types';
 
-
 const ProfileCard = ({ currentUser, classes }) => {
   return (
     <div className={classes.profileCard}>

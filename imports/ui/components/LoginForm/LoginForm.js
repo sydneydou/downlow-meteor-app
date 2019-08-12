@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 //TODO: add to onSubmit and include toggle between login and register forms
 
 const validate = values => {}; //TODO: Validation
-// when a function is being passed into a another function, just simply call it as an argument
 const onSubmit = (values, handleError) => {
   event.preventDefault();
   var myEmail = values.email;
@@ -18,10 +17,8 @@ const onSubmit = (values, handleError) => {
 
   Meteor.loginWithPassword(myEmail, myPassword, function(error) {
     if (Meteor.user()) {
-      console.log(Meteor.userId());
       handleError(null);
     } else {
-      console.log("ERROR: " + error);
       handleError(error);
     }
   });
