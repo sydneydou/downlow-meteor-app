@@ -16,7 +16,7 @@ const styles = theme => ({
   singleContent: {
     margin: "0",
     padding: "1px 0",
-    fontSize: "14px"
+    fontSize: "22px"
   },
   cardInfoContent: {
     fontWeight: "light",
@@ -95,7 +95,8 @@ const styles = theme => ({
     justifyContent: "flex-end"
   },
   cardInput: {
-    fontWeight: "500"
+    fontWeight: "500",
+    color: "#19B4A4"
   }
 });
 

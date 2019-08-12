@@ -32,7 +32,7 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
-
+    console.log(event);
     return (
       event && (
         <div className={classes.container}>
@@ -47,18 +47,16 @@ class EventCard extends Component {
                     </span>
                     <span className={classes.infoBlock}>
                       <h2 className={classes.cardArtist}>
-                        Artist:{" "}
-                        <span className={classes.cardInput}>
-                          {event.artist}
-                        </span>
+                        <span className={classes.cardInput}>Artist: </span>
+                        <span>{event.artist}</span>
                       </h2>
                       <h3 className={classes.cardArtist}>
-                        Genre:{" "}
-                        <span className={classes.cardInput}>{event.genre}</span>
+                        <span className={classes.cardInput}>Genre: </span>
+                        <span>{event.genre}</span>
                       </h3>
                     </span>
                     <h2 className={classes.singleContent}>
-                      {event.eventDescription}
+                      {event.description}
                     </h2>
                     <span>
                       <h3 className={classes.cardAttending}>
