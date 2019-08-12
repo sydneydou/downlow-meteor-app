@@ -7,10 +7,8 @@ import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
 import { Link } from "react-router-dom";
 import { Meteor } from "meteor/meteor";
-import { Accounts } from "meteor/accounts-base";
 import LogoutIcon from "@material-ui/icons/PowerSettingsNew";
 import ProfileIcon from "@material-ui/icons/PersonOutline";
-import Fab from "@material-ui/core/Fab";
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
 import PropTypes from "prop-types";
 
@@ -20,13 +18,13 @@ class Header extends Component {
 
     return (
       <div className={classes.container}>
-        <Link to="/home" className={classes.link}>
-          <p className={classes.headerText}>DownLow</p>
+        <Link to="/home" className={classes.Link}>
+          <p className={classes.HeaderText}>DownLow</p>
         </Link>
 
-        <Link to="/create" className={classes.link}>
-          <AddCircleOutline className={classes.addIcon} />
-          <p className={classes.headerText}>Add Event</p>
+        <Link to="/create" className={classes.Link}>
+          <AddCircleOutline className={classes.AddIcon} />
+          <p className={classes.HeaderText}>Add Event</p>
         </Link>
 
         <div className={classes.LongIconContainer}>
@@ -69,7 +67,7 @@ function LongMenu({ classes }) {
         onClick={handleClick}
         className={classes.VertIcon}
       >
-        <MoreVertIcon className={classes.dropDown} />
+        <MoreVertIcon className={classes.DropDown} />
       </IconButton>
       <Menu
         id="long-menu"
@@ -90,13 +88,13 @@ function LongMenu({ classes }) {
           className={classes["long-menu-item"]}
         >
           <span>
-            <ProfileIcon className={classes.innerIcons} />
+            <ProfileIcon className={classes.InnerIcons} />
             Profile
           </span>
         </MenuItem>
         <MenuItem onClick={logout} className={classes["long-menu-item"]}>
           <span>
-            <LogoutIcon className={classes.innerIcons} />
+            <LogoutIcon className={classes.InnerIcons} />
             Logout
           </span>
         </MenuItem>
