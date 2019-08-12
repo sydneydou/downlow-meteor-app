@@ -82,8 +82,9 @@ const AccountForm = ({ classes }) => (
           name="password"
           render={({ input, meta }) => (
             <div>
-              <textarea
+              <input
                 {...input}
+                type="password"
                 placeholder="Password"
                 className={classes["input-field"]}
               />

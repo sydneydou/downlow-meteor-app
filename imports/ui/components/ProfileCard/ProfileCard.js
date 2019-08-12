@@ -31,4 +31,5 @@ ProfileCard.propTypes = {
   }),
   classes: PropTypes.string.isRequired
 }
+
 export default withStyles(styles)(ProfileCard);
