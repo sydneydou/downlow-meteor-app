@@ -6,8 +6,7 @@ import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
 import EventGrid from "../../components/EventGrid";
 import { Events } from "../../../api/events";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -18,17 +17,19 @@ class ProfilePage extends Component {
     const { currentUser, classes, userEvents } = this.props;
 
     return (
-      <div className={classes.gradientContainer}>
+      <div className={classes.GradientContainer}>
         <ProfileCard currentUser={currentUser} />
         {userEvents.length > 0 ? (
           <div>
-            <h1 className={classes.profileHeader}>Events You Have Created</h1>
+            <h1 className={classes.ProfileHeader}>Events You Have Created</h1>
             <EventGrid events={userEvents} />
           </div>
         ) : (
-          <h1 className={classes.profileHeader}>
-            You haven't created any events yet!
-          </h1>
+          <div className={classes.HeaderContainer}>
+            <h2 className={classes.ProfileHeader}>
+              You haven't created any events yet!
+            </h2>
+          </div>
         )}
       </div>
     );
@@ -38,7 +39,7 @@ class ProfilePage extends Component {
 ProfilePage.propTypes = {
   classes: PropTypes.object,
   events: PropTypes.array
-}
+};
 
 export default withTracker(() => {
   Meteor.subscribe("events");
