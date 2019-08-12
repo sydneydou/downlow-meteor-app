@@ -21,11 +21,23 @@ const styles = theme => ({
     fontSize: "1.5em",
     fontWeight: "500",
     width: "100%",
-    margin: "0"
+    margin: "0",
+    "&:hover": {
+      color: "#19B4A4"
+    }
   },
   addIcon: {
     color: "white",
-    marginRight: "5px"
+    marginRight: "5px",
+    "&:hover": {
+      color: "#19B4A4"
+    }
+  },
+  HeaderHover: {
+    color: "white",
+    "&:hover": {
+      color: "#19B4A4"
+    }
   },
   link: {
     textDecoration: "none",
@@ -41,7 +53,10 @@ const styles = theme => ({
   },
   innerIcons: {
     verticalAlign: "middle",
-    marginRight: "10px"
+    marginRight: "10px",
+    "&:hover": {
+      color: "#19B4A4"
+    }
   },
   LongIconContainer: {
     width: "160px"

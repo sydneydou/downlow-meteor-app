@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 
 
 const ProfileCard = ({ currentUser, classes }) => {
+  console.log(currentUser)
   return (
     <div className={classes.profileCard}>
       <Card>
@@ -27,7 +28,8 @@ const ProfileCard = ({ currentUser, classes }) => {
 ProfileCard.propTypes = {
   currentUser: PropTypes.shape({
     username: PropTypes.string.isRequired,
-    emails: PropTypes.array.isRequired
+    emails: PropTypes.array.isRequired,
+    _id: PropTypes.string.isRequired
   }),
   classes: PropTypes.object.isRequired
 }
