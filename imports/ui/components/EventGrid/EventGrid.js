@@ -100,7 +100,7 @@ class EventGrid extends Component {
 }
 
 EventGrid.propTypes = {
-  classes: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired,
   events: PropTypes.array.isRequired
 }
 

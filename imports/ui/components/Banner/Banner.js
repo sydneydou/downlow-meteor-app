@@ -21,9 +21,11 @@ const Banner = ({ currentUser, classes }) => {
 
 Banner.propTypes = {
   currentUser: PropTypes.shape({
-    username: PropTypes.string.isRequired
+    emails: PropTypes.array.isRequired,
+    username: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired
   }),
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.object.isRequired
 }
 
 export default withTracker(() => {

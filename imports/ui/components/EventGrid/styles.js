@@ -51,6 +51,7 @@ const styles = theme => ({
       grow: "0"
     }
   },
+
   AttendingEventsTitle: {
     border: "2px solid #19B4A4",
     borderBottom: "2px solid black",
@@ -75,6 +76,9 @@ const styles = theme => ({
     paddingBottom: "4em",
     fontWeight: "500",
     fontSize: "1.6em"
+  },
+  EventGridContainer: {
+    marginBottom: "100px"
   }
 });
 
