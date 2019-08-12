@@ -4,6 +4,8 @@ import { Accounts } from "meteor/accounts-base";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
+import PropTypes from 'prop-types';
+
 
 //TODO: this is the rough code outline for login
 //TODO: add to onSubmit and include toggle between login and register forms
@@ -103,5 +105,9 @@ const AccountForm = ({ classes }) => (
     )}
   />
 );
+
+AccountForm.propTypes = {
+  classes: PropTypes.string.isRequired
+}
 
 export default withStyles(styles)(AccountForm);

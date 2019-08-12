@@ -6,6 +6,8 @@ import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
 import EventGrid from "../../components/EventGrid";
 import { Events } from "../../../api/events";
+import PropTypes from 'prop-types';
+
 
 class ProfilePage extends Component {
   constructor(props) {
@@ -22,6 +24,11 @@ class ProfilePage extends Component {
       </div>
     );
   }
+}
+
+ProfilePage.propTypes = {
+  classes: PropTypes.object,
+  events: PropTypes.array
 }
 
 export default withTracker(() => {

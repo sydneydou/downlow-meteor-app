@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styles from "./styles.js";
 import { withStyles } from "@material-ui/core/styles";
 import { withTracker } from "meteor/react-meteor-data";
+import PropTypes from 'prop-types';
 
 const Banner = ({ currentUser, classes }) => {
   return (
@@ -17,6 +18,13 @@ const Banner = ({ currentUser, classes }) => {
     </div>
   );
 };
+
+Banner.propTypes = {
+  currentUser: PropTypes.shape({
+    username: PropTypes.string.isRequired
+  }),
+  classes: PropTypes.string.isRequired
+}
 
 export default withTracker(() => {
   Meteor.subscribe("events");

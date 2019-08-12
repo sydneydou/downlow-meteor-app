@@ -7,10 +7,11 @@ import Button from "@material-ui/core/Button";
 import Banner from "../../components/Banner";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
-
+import PropTypes from 'prop-types';
 class HomePage extends Component {
   render() {
     const { classes, events } = this.props;
+    console.log(events);
     return (
       <div>
         <Banner />
@@ -21,6 +22,11 @@ class HomePage extends Component {
     );
   }
 }
+
+// HomePage.proptypes = {
+//   classes: PropTypes.object,
+//   events: PropTypes.object
+// }
 
 export default withTracker(() => {
   Meteor.subscribe("events");

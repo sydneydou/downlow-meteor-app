@@ -3,6 +3,7 @@ import { Form, Field } from "react-final-form";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
+import PropTypes from 'prop-types';
 // import { NavigationFullscreen } from "material-ui/svg-icons";
 
 //TODO: this is the rough code outline for login
@@ -102,6 +103,10 @@ class LoginForm extends Component {
       </React.Fragment>
     );
   }
+}
+
+LoginForm.propTypes = {
+  classes: PropTypes.string.isRequired
 }
 
 export default withStyles(styles)(LoginForm);
