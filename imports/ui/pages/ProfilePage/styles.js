@@ -11,7 +11,8 @@ const styles = theme => ({
   ProfileHeader: {
     color: "white",
     textAlign: "center",
-    height: "100%"
+    height: "100%",
+    fontSize: "2rem"
   },
   HeaderContainer: {
     height: "50vh"
