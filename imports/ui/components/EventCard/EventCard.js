@@ -32,7 +32,6 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
-    console.log(event);
     return (
       event && (
         <div className={classes.container}>
