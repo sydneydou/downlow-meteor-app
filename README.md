@@ -16,7 +16,7 @@ DownLow is a web-based application that allows logged-in users to rsvp to underg
 
 ## Set-up Instructions
 
-Clone repository and follow commands below
+Clone repository and follow commands below:
 
 ### Installation
 
