@@ -98,7 +98,7 @@ class LoginForm extends Component {
           )}
         />
         <p className={classes.errorMessage}>
-          {this.state.error && this.state.error.reason + `! Please try again!`} 
+          {this.state.error && this.state.error.reason + `! Please try again!`}
         </p>
       </React.Fragment>
     );

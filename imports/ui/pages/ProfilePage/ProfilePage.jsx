@@ -16,11 +16,20 @@ class ProfilePage extends Component {
 
   render() {
     const { currentUser, classes, userEvents } = this.props;
+
     return (
       <div className={classes.gradientContainer}>
         <ProfileCard currentUser={currentUser} />
-        <h1 className={classes.profileHeader}>Events You Have Created</h1>
-        <EventGrid events={userEvents} />
+        {userEvents.length > 0 ? (
+          <div>
+            <h1 className={classes.profileHeader}>Events You Have Created</h1>
+            <EventGrid events={userEvents} />
+          </div>
+        ) : (
+          <h1 className={classes.profileHeader}>
+            You haven't created any events yet!
+          </h1>
+        )}
       </div>
     );
   }

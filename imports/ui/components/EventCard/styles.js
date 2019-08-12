@@ -93,6 +93,9 @@ const styles = theme => ({
     display: "flex",
     width: "50%",
     justifyContent: "flex-end"
+  },
+  cardInput: {
+    fontWeight: "500"
   }
 });
 

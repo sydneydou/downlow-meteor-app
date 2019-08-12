@@ -46,8 +46,16 @@ class EventCard extends Component {
                       <h2 className={classes.cardDate}>{event.date}</h2>
                     </span>
                     <span className={classes.infoBlock}>
-                      <h2 className={classes.cardArtist}>{event.artist}</h2>
-                      <h3 className={classes.cardArtist}>{event.genre}</h3>
+                      <h2 className={classes.cardArtist}>
+                        Artist:{" "}
+                        <span className={classes.cardInput}>
+                          {event.artist}
+                        </span>
+                      </h2>
+                      <h3 className={classes.cardArtist}>
+                        Genre:{" "}
+                        <span className={classes.cardInput}>{event.genre}</span>
+                      </h3>
                     </span>
                     <h2 className={classes.singleContent}>
                       {event.eventDescription}
@@ -87,8 +95,8 @@ class EventCard extends Component {
                       </Button>
                     ) : null}
                   </div>
-                  <div className = {classes.cardDiv}>
-                  <img src={event.imageurl} className={classes.cardImage} />
+                  <div className={classes.cardDiv}>
+                    <img src={event.imageurl} className={classes.cardImage} />
                   </div>
                 </div>
               </CardContent>
