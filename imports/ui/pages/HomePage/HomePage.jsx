@@ -3,7 +3,6 @@ import { Meteor } from "meteor/meteor";
 import React, { Component } from "react";
 import EventGrid from "../../components/EventGrid";
 import { Events } from "../../../api/events";
-import Button from "@material-ui/core/Button";
 import Banner from "../../components/Banner";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
@@ -22,10 +21,10 @@ class HomePage extends Component {
   }
 }
 
-// HomePage.proptypes = {
-//   classes: PropTypes.object,
-//   events: PropTypes.object
-// }
+HomePage.proptypes = {
+  classes: PropTypes.object.isRequired,
+  events: PropTypes.array.isRequired
+}
 
 export default withTracker(() => {
   Meteor.subscribe("events");

@@ -15,7 +15,6 @@ class ProfilePage extends Component {
 
   render() {
     const { currentUser, classes, userEvents } = this.props;
-
     return (
       <div className={classes.GradientContainer}>
         <ProfileCard currentUser={currentUser} />
@@ -37,8 +36,13 @@ class ProfilePage extends Component {
 }
 
 ProfilePage.propTypes = {
-  classes: PropTypes.object,
-  events: PropTypes.array
+  currentUser: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    emails: PropTypes.array.isRequired,
+    _id: PropTypes.string.isRequired
+  }),
+  classes: PropTypes.object.isRequired,
+  userEvents: PropTypes.array.isRequired
 };
 
 export default withTracker(() => {

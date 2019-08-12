@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
@@ -36,7 +34,6 @@ class EventCard extends Component {
       event && (
         <div className={classes.container}>
           <Card className={classes.card}>
-            <CardActionArea>
               <CardContent>
                 <div className={classes.imageCentering}>
                   <div className={classes.cardInfoContent}>
@@ -97,7 +94,6 @@ class EventCard extends Component {
                   </div>
                 </div>
               </CardContent>
-            </CardActionArea>
           </Card>
         </div>
       )
