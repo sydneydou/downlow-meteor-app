@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 
 
 const ProfileCard = ({ currentUser, classes }) => {
-  console.log(currentUser)
   return (
     <div className={classes.profileCard}>
       <Card>
