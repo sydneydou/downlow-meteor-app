@@ -12,6 +12,7 @@ import LogoutIcon from "@material-ui/icons/PowerSettingsNew";
 import ProfileIcon from "@material-ui/icons/PersonOutline";
 import Fab from "@material-ui/core/Fab";
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
+import PropTypes from "prop-types";
 
 class Header extends Component {
   render() {
@@ -103,5 +104,9 @@ function LongMenu({ classes }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  classes: PropTypes.string.isRequired
+};
 
 export default withStyles(styles)(Header);

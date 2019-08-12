@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
 import { withRouter } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
+import PropTypes from 'prop-types';
+
 //show all event only for homepage
 class EventGrid extends Component {
   constructor(props) {
@@ -79,15 +81,7 @@ class EventGrid extends Component {
           </div>
         ) : (
           <div>
-            <Grid
-              item
-              xs={12}
-              className={
-                this.props.location.pathname === "/home"
-                  ? classes.EventGridContainer
-                  : null
-              }
-            >
+            <Grid item xs={12} className={classes.EventGridContainer}>
               {this.filterEvents(events).length ? (
                 this.filterEvents(events).map(event => (
                   <EventCard key={event._id} event={event} />
@@ -103,6 +97,11 @@ class EventGrid extends Component {
       </div>
     );
   }
+}
+
+EventGrid.propTypes = {
+  classes: PropTypes.string.isRequired,
+  events: PropTypes.array.isRequired
 }
 
 export default withRouter(withStyles(styles)(EventGrid));

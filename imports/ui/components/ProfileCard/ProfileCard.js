@@ -6,6 +6,8 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Gravatar from "react-gravatar";
+import PropTypes from 'prop-types';
+
 
 const ProfileCard = ({ currentUser, classes }) => {
   return (
@@ -22,4 +24,11 @@ const ProfileCard = ({ currentUser, classes }) => {
   );
 };
 
+ProfileCard.propTypes = {
+  currentUser: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired
+  }),
+  classes: PropTypes.string.isRequired
+}
 export default withStyles(styles)(ProfileCard);

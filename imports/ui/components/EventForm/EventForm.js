@@ -11,6 +11,8 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
+// import PropTypes from 'prop-types';
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -210,4 +212,10 @@ const EventForm = ({ currentUser, classes }) => {
     </div>
   );
 };
+
+// TODO: find out what data type currentUser is
+// EventForm.propTypes = {
+//   currentUser: PropTypes.
+// }
+
 export default withStyles(styles)(EventForm);

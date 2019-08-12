@@ -8,6 +8,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
+import PropTypes from "prop-types";
 
 class EventCard extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
-    console.log(event);
+
     return (
       event && (
         <div className={classes.container}>
@@ -45,8 +46,16 @@ class EventCard extends Component {
                       <h2 className={classes.cardDate}>{event.date}</h2>
                     </span>
                     <span className={classes.infoBlock}>
-                      <h2 className={classes.cardArtist}>{event.artist}</h2>
-                      <h3 className={classes.cardArtist}>{event.genre}</h3>
+                      <h2 className={classes.cardArtist}>
+                        Artist:{" "}
+                        <span className={classes.cardInput}>
+                          {event.artist}
+                        </span>
+                      </h2>
+                      <h3 className={classes.cardArtist}>
+                        Genre:{" "}
+                        <span className={classes.cardInput}>{event.genre}</span>
+                      </h3>
                     </span>
                     <h2 className={classes.singleContent}>
                       {event.eventDescription}
@@ -86,8 +95,8 @@ class EventCard extends Component {
                       </Button>
                     ) : null}
                   </div>
-                  <div className = {classes.cardDiv}>
-                  <img src={event.imageurl} className={classes.cardImage} />
+                  <div className={classes.cardDiv}>
+                    <img src={event.imageurl} className={classes.cardImage} />
                   </div>
                 </div>
               </CardContent>
@@ -98,5 +107,10 @@ class EventCard extends Component {
     );
   }
 }
-//subscribe to event
+
+EventCard.propTypes = {
+  classes: PropTypes.string.isRequired,
+  events: PropTypes.array.isRequired
+};
+
 export default withStyles(styles)(EventCard);

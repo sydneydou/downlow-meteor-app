@@ -8,7 +8,6 @@ if (Meteor.isServer) {
     return Events.find({});
   });
 }
-
 Meteor.methods({
   "events.newEvent"(newEvent) {
     Events.insert({ ...newEvent });

@@ -25,6 +25,7 @@ class LoginPage extends Component {
     return (
       <div className={classes.LoginPageBg}>
         <div className={classes.loginWrapper}>
+        <h1 className={classes.dlLogo}>DownLow</h1>
           {showLogin ? <LoginForm /> : <AccountForm />}
           <Button
             className={classes.btn}
