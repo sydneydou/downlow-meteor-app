@@ -6,7 +6,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Gravatar from "react-gravatar";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const ProfileCard = ({ currentUser, classes }) => {
   return (
@@ -14,8 +14,10 @@ const ProfileCard = ({ currentUser, classes }) => {
       <Card className={classes.background}>
         <CardActionArea>
           <CardContent>
-            <Gravatar email={currentUser.emails[0].address} />
-            <h1>{currentUser.username}</h1>
+            <div className={classes.CardInfo}>
+              <Gravatar email={currentUser.emails[0].address} />
+              <h1 className={classes.CardName}>{currentUser.username}</h1>
+            </div>
           </CardContent>
         </CardActionArea>
       </Card>
@@ -30,6 +32,6 @@ ProfileCard.propTypes = {
     _id: PropTypes.string.isRequired
   }),
   classes: PropTypes.object.isRequired
-}
+};
 
 export default withStyles(styles)(ProfileCard);

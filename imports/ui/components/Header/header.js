@@ -19,7 +19,6 @@ class Header extends Component {
     return (
       <div className={classes.container}>
         <Link to="/home" className={classes.Link}>
-          {/* <p className={classes.HeaderText}>DownLow</p> */}
           <img src="assets/dl-logo.svg" className={classes.DlLogo} />
         </Link>
 
