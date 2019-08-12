@@ -104,7 +104,6 @@ const CreateEventForm = () => (
             </div>
           )}
         />
-
         <button type="submit" disabled={pristine || invalid}>
           Submit
         </button>

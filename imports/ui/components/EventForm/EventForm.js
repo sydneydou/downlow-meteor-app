@@ -213,15 +213,6 @@ const EventForm = ({ currentUser, classes }) => {
   );
 };
 
-onSubmit.propTypes = {
-  currentUser: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    emails: PropTypes.array.isRequired,
-    _id: PropTypes.string.isRequired
-  }),
-  values: PropTypes.object.isRequired
-}
-
 EventForm.propTypes = {
   currentUser: PropTypes.shape({
     username: PropTypes.string.isRequired,

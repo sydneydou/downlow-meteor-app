@@ -14,6 +14,8 @@ class CreateEventPage extends Component {
   }
 }
 
+CreateEventPage.propType
+
 export default withTracker(() => {
   return {
     currentUser: Meteor.user(),
