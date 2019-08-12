@@ -16,7 +16,7 @@ const styles = theme => ({
     display: "flex",
     alignItems: "center"
   },
-  headerText: {
+  HeaderText: {
     color: "white",
     fontSize: "1.5em",
     fontWeight: "500",
@@ -26,7 +26,7 @@ const styles = theme => ({
       color: "#19B4A4"
     }
   },
-  addIcon: {
+  AddIcon: {
     color: "white",
     marginRight: "5px",
     "&:hover": {
@@ -39,19 +39,19 @@ const styles = theme => ({
       color: "#19B4A4"
     }
   },
-  link: {
+  Link: {
     textDecoration: "none",
     display: "flex",
     alignItems: "center",
     zIndex: "2",
     width: "160px"
   },
-  dropDown: {
+  DropDown: {
     height: "1.2em",
     fontSize: "1.5em",
     color: "white"
   },
-  innerIcons: {
+  InnerIcons: {
     verticalAlign: "middle",
     marginRight: "10px",
     "&:hover": {

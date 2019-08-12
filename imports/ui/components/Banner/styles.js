@@ -7,7 +7,7 @@ const styles = theme => ({
     height: "92vh",
     marginTop: "-80px",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   dL: {
     color: "#fff",
@@ -15,20 +15,20 @@ const styles = theme => ({
     fontWeight: "700",
     marginBottom: "1rem"
   },
-  bannerText: {
+  BannerText: {
     height: "50",
     margin: "0",
     color: "#fff",
     fontWeight: "300",
     fontSize: "29px"
   },
-  bannerTextPosition: {
+  BannerTextPosition: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     flexDirection: "column"
-  } 
+  }
 });
 
 export default styles;
