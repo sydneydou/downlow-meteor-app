@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import styles from "./styles";
 import { withStyles } from "@material-ui/styles";
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -213,9 +213,22 @@ const EventForm = ({ currentUser, classes }) => {
   );
 };
 
-// TODO: find out what data type currentUser is
-// EventForm.propTypes = {
-//   currentUser: PropTypes.
-// }
+onSubmit.propTypes = {
+  currentUser: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    emails: PropTypes.array.isRequired,
+    _id: PropTypes.string.isRequired
+  }),
+  values: PropTypes.object.isRequired
+}
+
+EventForm.propTypes = {
+  currentUser: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    emails: PropTypes.array.isRequired,
+    _id: PropTypes.string.isRequired
+  }),
+  classes: PropTypes.object.isRequired
+}
 
 export default withStyles(styles)(EventForm);
