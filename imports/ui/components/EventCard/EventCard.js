@@ -8,7 +8,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import Button from "@material-ui/core/Button";
 import { Meteor } from "meteor/meteor";
 import DeleteOutlinedIcon from "@material-ui/icons/DeleteOutlined";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class EventCard extends Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
-    console.log(event);
+
     return (
       event && (
         <div className={classes.container}>
@@ -111,7 +111,6 @@ class EventCard extends Component {
 EventCard.propTypes = {
   classes: PropTypes.string.isRequired,
   events: PropTypes.array.isRequired
-}
+};
 
-//subscribe to event
 export default withStyles(styles)(EventCard);

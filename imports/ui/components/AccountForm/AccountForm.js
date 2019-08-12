@@ -4,41 +4,18 @@ import { Accounts } from "meteor/accounts-base";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles";
-import PropTypes from 'prop-types';
-
-
-//TODO: this is the rough code outline for login
-//TODO: add to onSubmit and include toggle between login and register forms
-// event.preventDefault();
-// var myEmail = event.target.loginEmail.value;
-// var myPassword = event.target.loginPassword.value;
-
-// Meteor.loginWithPassword(myEmail, myPassword, function(error) {
-
-//    if (Meteor.user()) {
-//       console.log(Meteor.userId());
-//    } else {
-//       console.log("ERROR: " + error.reason);
-//    }
-// });
+import PropTypes from "prop-types";
 
 const validate = values => {};
 const onSubmit = values => {
-  console.log(values.password);
   event.preventDefault();
   const registerData = {
     username: values.username,
     email: values.email,
     password: values.password
   };
-  console.log(registerData);
-
   Accounts.createUser(registerData, function(error) {
-    if (Meteor.user()) {
-      console.log(Meteor.userId());
-    } else {
-      console.log("ERROR: " + error.reason);
-    }
+    return registerData;
   });
 };
 
@@ -108,6 +85,6 @@ const AccountForm = ({ classes }) => (
 
 AccountForm.propTypes = {
   classes: PropTypes.string.isRequired
-}
+};
 
 export default withStyles(styles)(AccountForm);
