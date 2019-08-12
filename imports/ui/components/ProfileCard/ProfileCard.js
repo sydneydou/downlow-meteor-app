@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 const ProfileCard = ({ currentUser, classes }) => {
   return (
     <div className={classes.profileCard}>
-      <Card>
+      <Card className={classes.background}>
         <CardActionArea>
           <CardContent>
             <Gravatar email={currentUser.emails[0].address} />
