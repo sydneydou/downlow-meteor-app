@@ -32,7 +32,7 @@ class EventCard extends Component {
   };
   render() {
     const { event, classes } = this.props;
-    console.log(event);
+
     return (
       event && (
         <div className={classes.container}>
@@ -109,6 +109,6 @@ class EventCard extends Component {
 EventCard.propTypes = {
   classes: PropTypes.object.isRequired,
   event: PropTypes.object.isRequired
-}
+};
 
 export default withStyles(styles)(EventCard);
