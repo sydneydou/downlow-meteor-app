@@ -6,10 +6,10 @@ This project is apart of the Intensive App Developer Program at Red Academy, tas
 
 ## Screenshots
 
-![alt text](assets/home.png)
-![alt text](assets/profile.png)
-![alt text](assets/create.png)
-![alt text](assets/events.png)
+![alt text](public/assets/home.png)
+![alt text](public/assets/profile.png)
+![alt text](public/assets/create.png)
+![alt text](public/assets/events.png)
 
 ## What is DownLow?
 
