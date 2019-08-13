@@ -19,8 +19,6 @@ Meteor.methods({
     Events.remove(eventId);
   },
   "events.removeUserReservation"(eventId, userId) {
-    console.log(eventId);
-    console.log(userId);
     Events.update({ _id: eventId }, { $pull: { reserved: userId } });
   }
 });
