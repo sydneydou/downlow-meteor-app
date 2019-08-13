@@ -51,9 +51,13 @@ class EventCard extends Component {
                         <span>{event.genre}</span>
                       </h3>
                     </span>
+                    <h2 className={classes.eventLocation}>
+                      {event.location}
+                    </h2>
                     <h2 className={classes.singleContent}>
                       {event.description}
                     </h2>
+                   
                     <span>
                       <h3 className={classes.cardAttending}>
                         There will be{" "}

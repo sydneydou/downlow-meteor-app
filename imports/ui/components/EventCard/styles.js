@@ -71,7 +71,7 @@ const styles = theme => ({
     padding: "1px 0",
     fontSize: "22px",
     fontWeight: "500",
-    paddingTop: ".8em"
+    marginBottom: ".2em"
   },
   numAttending: {
     fontWeight: "800"
@@ -97,6 +97,12 @@ const styles = theme => ({
   cardInput: {
     fontWeight: "500",
     color: "#19B4A4"
+  },
+  eventLocation: {
+    margin: "0",
+    paddingTop: ".5em",
+    fontSize: "18px",
+    fontWeight: "500"
   }
 });
 
